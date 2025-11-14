@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payer Analysis - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html">Daily Operations</a></li>
+                <li><a href="payer-management.html">Payer Management</a></li>
+                <li><a href="payer-analysis.html" class="active">Payer Analysis</a></li>
+                <li><a href="critical-issues.html">Critical Issues</a></li>
+                <li><a href="denial-management.html">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Key Payer Relationship Analysis</h1>
+                <p class="lead">Comprehensive Insurance Payer Performance Metrics & Analysis Framework</p>
+            </header>
+
+            <section>
+                <h2>Analysis Framework Overview</h2>
+                <div class="overview-content">
+                    <p>This framework outlines the key metrics and analysis required for every insurance payer to ensure optimal revenue cycle performance. Each payer must be evaluated across four critical dimensions: Volume Metrics, Payment Speed, Key Issues, and Expected Outputs.</p>
+
+                    <p>The goal is to create a comprehensive, software-style dashboard that provides real-time visibility into payer performance, identifies bottlenecks, and enables data-driven decision-making for revenue optimization.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>1. Volume Metrics</h2>
+                <div class="scope-grid">
+                    <div class="scope-item">
+                        <h4>Total Claim Volume</h4>
+                        <ul>
+                            <li>Number of claims submitted per payer</li>
+                            <li>Historical trending (daily, weekly, monthly)</li>
+                            <li>Year-over-year comparison</li>
+                            <li>Facility-level breakdowns</li>
+                        </ul>
+                    </div>
+                    <div class="scope-item">
+                        <h4>Total Dollar Value</h4>
+                        <ul>
+                            <li>Gross charges submitted</li>
+                            <li>Expected reimbursement</li>
+                            <li>Actual payments received</li>
+                            <li>Revenue variance analysis</li>
+                        </ul>
+                    </div>
+                    <div class="scope-item">
+                        <h4>Daily/Weekly Intake</h4>
+                        <ul>
+                            <li>Average daily claim submissions</li>
+                            <li>Peak submission days</li>
+                            <li>Weekly submission patterns</li>
+                            <li>Seasonal variations</li>
+                        </ul>
+                    </div>
+                    <div class="scope-item">
+                        <h4>Pending Volume</h4>
+                        <ul>
+                            <li>Claims awaiting adjudication</li>
+                            <li>Claims in appeals</li>
+                            <li>Claims pending documentation</li>
+                            <li>Aging analysis by bucket</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>2. Payment Speed</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">Average Days to Payment</div>
+                        <div class="timeline-content">
+                            <h4>Measurement Criteria:</h4>
+                            <ul>
+                                <li>Time from claim submission to payment posting</li>
+                                <li>Clean claim payment timeline</li>
+                                <li>Adjusted claim payment timeline</li>
+                                <li>Denied claim resolution timeline</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">Lag Time Analysis</div>
+                        <div class="timeline-content">
+                            <h4>Key Metrics:</h4>
+                            <ul>
+                                <li>Expected vs. actual payment dates</li>
+                                <li>Payer-specific lag patterns (e.g., Humana 3-day lag, BCBS 1-day lag)</li>
+                                <li>Pre-notification accuracy</li>
+                                <li>Bank deposit timing vs. EOB receipt</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">Variance Between Facilities</div>
+                        <div class="timeline-content">
+                            <h4>Facility Comparison:</h4>
+                            <ul>
+                                <li>Payment speed by facility</li>
+                                <li>Geographic region analysis</li>
+                                <li>Provider type impact</li>
+                                <li>Service line variations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">Timeline Tracking</div>
+                        <div class="timeline-content">
+                            <h4>Rejected vs. Approved:</h4>
+                            <ul>
+                                <li>Time to first rejection notification</li>
+                                <li>Time to approval confirmation</li>
+                                <li>Rework submission to resolution</li>
+                                <li>Appeal timeline tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. Key Issues</h2>
+                <div class="recommendation-list">
+                    <div class="recommendation">
+                        <h3>Denial Reasons</h3>
+                        <ul>
+                            <li>Top denial reason codes by payer</li>
+                            <li>Frequency and dollar impact</li>
+                            <li>Preventable vs. non-preventable denials</li>
+                            <li>Denial trend analysis</li>
+                            <li>Resolution success rates</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Pending Letters & Requests</h3>
+                        <ul>
+                            <li>30-day pending letters (e.g., Humana)</li>
+                            <li>Medical record requests</li>
+                            <li>Additional documentation requirements</li>
+                            <li>Prior authorization follow-ups</li>
+                            <li>Response timeline tracking</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Coding-Related Patterns</h3>
+                        <ul>
+                            <li>Frequently rejected CPT codes</li>
+                            <li>Modifier issues</li>
+                            <li>Diagnosis code mismatches</li>
+                            <li>Bundling/unbundling errors</li>
+                            <li>Coding education opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Missing Documentation Patterns</h3>
+                        <ul>
+                            <li>Most commonly requested documents</li>
+                            <li>Facility-specific documentation gaps</li>
+                            <li>Provider signature issues</li>
+                            <li>Time-of-service documentation</li>
+                            <li>Process improvement targets</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Insurance-Specific Rework Requirements</h3>
+                        <ul>
+                            <li>Payer-unique submission requirements</li>
+                            <li>Special form requirements</li>
+                            <li>Portal vs. EDI submission preferences</li>
+                            <li>Attestation requirements</li>
+                            <li>Credential verification needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>4. Expected Output - Payer Dashboard</h2>
+                <div class="overview-content">
+                    <p>A comprehensive, software-style dashboard providing real-time payer performance insights:</p>
+                </div>
+
+                <div class="action-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dashboard Element</th>
+                                <th>Data Points</th>
+                                <th>Refresh Frequency</th>
+                                <th>Action Triggers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Volume Tracker</strong></td>
+                                <td>Claims submitted, pending, paid</td>
+                                <td>Daily</td>
+                                <td>Volume spike alerts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Speed</strong></td>
+                                <td>Avg days to payment, lag time</td>
+                                <td>Real-time</td>
+                                <td>Lag > threshold alert</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lag Monitor</strong></td>
+                                <td>Expected vs actual payment dates</td>
+                                <td>Real-time</td>
+                                <td>Variance > 2 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Issues Tracker</strong></td>
+                                <td>Open denials, pending requests</td>
+                                <td>Daily</td>
+                                <td>Aging > 30 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Approval Rate</strong></td>
+                                <td>Clean claim %</td>
+                                <td>Weekly</td>
+                                <td>Rate < 90%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rejection Rate</strong></td>
+                                <td>Denial % by reason</td>
+                                <td>Weekly</td>
+                                <td>Rate > 10%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rework Workload</strong></td>
+                                <td>Claims requiring resubmission</td>
+                                <td>Daily</td>
+                                <td>Backlog > 100 claims</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Net Realization</strong></td>
+                                <td>Expected vs collected revenue</td>
+                                <td>Monthly</td>
+                                <td>Variance > 5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Dashboard Visualization Features</h3>
+                <div class="summary-grid">
+                    <div class="metric-card priority-high">
+                        <h3>Real-Time Alerts</h3>
+                        <ul>
+                            <li>Payment delays exceeding threshold</li>
+                            <li>Denial rate spikes</li>
+                            <li>Volume anomalies</li>
+                            <li>Documentation request backlog</li>
+                        </ul>
+                    </div>
+
+                    <div class="metric-card priority-medium">
+                        <h3>Trend Analysis</h3>
+                        <ul>
+                            <li>Historical performance charts</li>
+                            <li>Payer comparison views</li>
+                            <li>Month-over-month trends</li>
+                            <li>Predictive forecasting</li>
+                        </ul>
+                    </div>
+
+                    <div class="metric-card priority-low">
+                        <h3>Drill-Down Capability</h3>
+                        <ul>
+                            <li>Click-through to claim details</li>
+                            <li>Facility-level breakdowns</li>
+                            <li>Provider performance views</li>
+                            <li>Service line analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Payer-Specific Templates</h2>
+                <div class="overview-content">
+                    <p>Each insurance payer should be analyzed using the framework above. Below is the standardized template for documenting payer-specific findings:</p>
+                </div>
+
+                <h3>Example: Humana Analysis Template</h3>
+                <div class="metric-card priority-high">
+                    <h3>Humana Performance Metrics</h3>
+                    <ul>
+                        <li><strong>Volume:</strong> High - [Insert specific claim counts]</li>
+                        <li><strong>Payment Speed:</strong> 3-day lag on average</li>
+                        <li><strong>Key Issues:</strong> 30-day pending letters, medical record requests</li>
+                        <li><strong>Approval Rate:</strong> [Insert %]</li>
+                        <li><strong>Rejection Rate:</strong> [Insert %]</li>
+                        <li><strong>Net Realization:</strong> [Insert $ and %]</li>
+                    </ul>
+                </div>
+
+                <h3>Example: Blue Cross Blue Shield Template</h3>
+                <div class="metric-card priority-medium">
+                    <h3>BCBS Performance Metrics</h3>
+                    <ul>
+                        <li><strong>Volume:</strong> High - [Insert specific claim counts]</li>
+                        <li><strong>Payment Speed:</strong> 1-day lag on average</li>
+                        <li><strong>Key Issues:</strong> Prior authorization requirements</li>
+                        <li><strong>Approval Rate:</strong> [Insert %]</li>
+                        <li><strong>Rejection Rate:</strong> [Insert %]</li>
+                        <li><strong>Net Realization:</strong> [Insert $ and %]</li>
+                    </ul>
+                </div>
+
+                <h3>Additional Payers to Analyze</h3>
+                <div class="impact-cards">
+                    <div class="impact-card">
+                        <h3>Medicare</h3>
+                        <div class="amount">Very High</div>
+                        <p>0-1 day early payment<br/>2% sequestration</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Medicaid</h3>
+                        <div class="amount">Medium</div>
+                        <p>State-specific rules<br/>Varying timelines</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Aetna</h3>
+                        <div class="amount">Medium</div>
+                        <p>Pre-notification<br/>Future payment dates</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>United/Optum</h3>
+                        <div class="amount">Medium</div>
+                        <p>Variable speed<br/>Bank label variance</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Implementation Roadmap</h2>
+                <div class="recommendation-list">
+                    <div class="recommendation">
+                        <h3>Phase 1: Data Collection (Weeks 1-2)</h3>
+                        <ul>
+                            <li>Establish baseline metrics for each payer</li>
+                            <li>Configure reporting systems</li>
+                            <li>Train staff on data capture requirements</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Phase 2: Dashboard Development (Weeks 3-6)</h3>
+                        <ul>
+                            <li>Build payer-specific dashboard screens</li>
+                            <li>Implement alert mechanisms</li>
+                            <li>Create drill-down capabilities</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation">
+                        <h3>Phase 3: Monitoring & Optimization (Ongoing)</h3>
+                        <ul>
+                            <li>Daily dashboard reviews</li>
+                            <li>Weekly trend analysis</li>
+                            <li>Monthly performance reporting</li>
+                            <li>Continuous process improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
