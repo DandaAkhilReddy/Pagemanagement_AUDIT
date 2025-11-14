@@ -9,7 +9,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(gh repo view:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(curl:*)",
+      "Bash(start http://localhost:8000)"
     ],
     "deny": [],
     "ask": []
