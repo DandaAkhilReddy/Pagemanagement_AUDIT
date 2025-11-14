@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denial Management - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html">Daily Operations</a></li>
+                <li><a href="payer-management.html">Payer Management</a></li>
+                <li><a href="critical-issues.html">Critical Issues</a></li>
+                <li><a href="denial-management.html" class="active">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Denial Management</h1>
+                <p class="lead">Comprehensive Analysis of Claim Denials and Resolution Strategies</p>
+            </header>
+
+            <section>
+                <h2>Clean Claim Performance</h2>
+                <div class="clean-claims">
+                    <h3>Current Performance Metrics</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Florida</h3>
+                            <div class="amount">93%</div>
+                            <p>Clean claim rate<br/>5.5% denial rate</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Texas</h3>
+                            <div class="amount">95.9%</div>
+                            <p>Clean claim rate<br/>4.1% denial rate</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Overall</h3>
+                            <div class="amount">94%</div>
+                            <p>Combined rate<br/>5.1% denial average</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Target</h3>
+                            <div class="amount">95%+</div>
+                            <p>Industry benchmark<br/>< 5% denials</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Denial Categories Analysis</h2>
+                <div class="denial-categories">
+                    <h3>Denial Distribution by Type</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Denial Category</th>
+                                    <th>% of Total</th>
+                                    <th>Common Causes</th>
+                                    <th>Resolution Strategy</th>
+                                    <th>Preventable</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="high-priority">
+                                    <td><strong>Medical Necessity</strong></td>
+                                    <td>22%</td>
+                                    <td>Missing modifiers, incomplete documentation</td>
+                                    <td>Appeal with records</td>
+                                    <td>Yes - 80%</td>
+                                </tr>
+                                <tr class="high-priority">
+                                    <td><strong>Prior Authorization</strong></td>
+                                    <td>18%</td>
+                                    <td>Hospital didn't obtain auth</td>
+                                    <td>Retro-authorization</td>
+                                    <td>Yes - 90%</td>
+                                </tr>
+                                <tr class="medium-priority">
+                                    <td><strong>Coding Errors</strong></td>
+                                    <td>15%</td>
+                                    <td>Wrong CPT, missing modifiers</td>
+                                    <td>Correct and resubmit</td>
+                                    <td>Yes - 100%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Duplicate Claims</strong></td>
+                                    <td>12%</td>
+                                    <td>System duplicates, manual errors</td>
+                                    <td>Void duplicate</td>
+                                    <td>Yes - 100%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Registration Errors</strong></td>
+                                    <td>10%</td>
+                                    <td>Wrong DOB, ID, demographics</td>
+                                    <td>Update and resubmit</td>
+                                    <td>Yes - 95%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Coverage Issues</strong></td>
+                                    <td>8%</td>
+                                    <td>Wrong plan, Medicaid replacement</td>
+                                    <td>Rebill correct payer</td>
+                                    <td>Yes - 85%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bundling</strong></td>
+                                    <td>7%</td>
+                                    <td>Services bundled by payer</td>
+                                    <td>Review and adjust</td>
+                                    <td>Partial - 50%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hospice Override</strong></td>
+                                    <td>5%</td>
+                                    <td>Patient on hospice</td>
+                                    <td>Bill hospice provider</td>
+                                    <td>Yes - 75%</td>
+                                </tr>
+                                <tr class="low-priority">
+                                    <td><strong>Above Contract</strong></td>
+                                    <td>3%</td>
+                                    <td>Paid more than expected</td>
+                                    <td>No action needed</td>
+                                    <td>N/A</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>AdvancedMD Denial Reports</h2>
+                <div class="report-structure">
+                    <h3>CBO Report Configuration</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Summary Report View</h4>
+                            <ul>
+                                <li>Groups denials by payer</li>
+                                <li>Shows percentages and totals</li>
+                                <li>Filters out non-actionable items</li>
+                                <li>CO45 contractual excluded</li>
+                                <li>Sequestration separated</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Detail Report View</h4>
+                            <ul>
+                                <li>Patient-level details</li>
+                                <li>CPT codes affected</li>
+                                <li>Provider information</li>
+                                <li>Specific denial reasons</li>
+                                <li>Adjustment codes</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Filter Options</h4>
+                            <ul>
+                                <li>Date range selection</li>
+                                <li>Facility specific</li>
+                                <li>Provider specific</li>
+                                <li>Payer grouping</li>
+                                <li>Denial category</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Denial Workflow Process</h2>
+                <div class="workflow-process">
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Denial Receipt</div>
+                            <div class="step-description">ERA/EOB received</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Categorization</div>
+                            <div class="step-description">Classify denial type</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Assignment</div>
+                            <div class="step-description">Route to specialist</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Resolution</div>
+                            <div class="step-description">Fix and resubmit</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Tracking</div>
+                            <div class="step-description">Monitor outcome</div>
+                        </div>
+                    </div>
+
+                    <h3>Detailed Resolution Steps by Category</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">Medical Necessity Denials</div>
+                            <div class="timeline-content">
+                                <h4>Resolution Process:</h4>
+                                <ul>
+                                    <li>Review documentation for missing elements</li>
+                                    <li>Obtain additional records from provider</li>
+                                    <li>Prepare appeal letter with clinical justification</li>
+                                    <li>Submit within payer's appeal timeframe</li>
+                                    <li>Track appeal status weekly</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Prior Authorization Denials</div>
+                            <div class="timeline-content">
+                                <h4>Resolution Process:</h4>
+                                <ul>
+                                    <li>Verify if hospital obtained authorization</li>
+                                    <li>Request retro-authorization if possible</li>
+                                    <li>Submit clinical documentation</li>
+                                    <li>Escalate to medical director if needed</li>
+                                    <li>Document authorization number</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Coding Error Denials</div>
+                            <div class="timeline-content">
+                                <h4>Resolution Process:</h4>
+                                <ul>
+                                    <li>Identify specific coding issue</li>
+                                    <li>Review documentation for support</li>
+                                    <li>Correct CPT/modifier/diagnosis</li>
+                                    <li>Resubmit corrected claim</li>
+                                    <li>Update provider education log</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Provider-Specific Denial Patterns</h2>
+                <div class="provider-patterns">
+                    <h3>High-Risk Providers Requiring Training</h3>
+                    <div class="metric-card priority-high">
+                        <h4>Common Provider Issues:</h4>
+                        <ul>
+                            <li><strong>Missing Q6 modifier:</strong> Locum tenens not indicated</li>
+                            <li><strong>Insufficient documentation:</strong> Level of service not supported</li>
+                            <li><strong>Wrong place of service:</strong> Inpatient vs observation</li>
+                            <li><strong>Bundled services:</strong> Billing separately when should bundle</li>
+                            <li><strong>Time-based coding errors:</strong> Critical care documentation</li>
+                        </ul>
+                    </div>
+
+                    <h3>Provider Education Program</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation">
+                            <h3>Monthly Training Topics</h3>
+                            <ul>
+                                <li>Documentation requirements by CPT level</li>
+                                <li>Modifier usage guidelines</li>
+                                <li>Critical care time tracking</li>
+                                <li>Observation vs inpatient criteria</li>
+                                <li>Common denial reasons review</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Training Delivery</h3>
+                            <ul>
+                                <li>Lisa conducts when Heather on leave</li>
+                                <li>Heather leads coding education</li>
+                                <li>Individual provider feedback sessions</li>
+                                <li>Group webinars monthly</li>
+                                <li>Quick reference guides distributed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Denial Prevention Strategies</h2>
+                <div class="prevention-strategies">
+                    <h3>Front-End Prevention</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Registration Accuracy</h4>
+                            <ul>
+                                <li>Double-verify insurance IDs</li>
+                                <li>Confirm DOB at entry</li>
+                                <li>Eligibility check before billing</li>
+                                <li>Update demographics regularly</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Authorization Management</h4>
+                            <ul>
+                                <li>Daily auth status checks</li>
+                                <li>Pre-service authorization</li>
+                                <li>Track auth expiration dates</li>
+                                <li>Document auth numbers</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Coding Quality</h4>
+                            <ul>
+                                <li>100% pre-bill review</li>
+                                <li>Modifier verification</li>
+                                <li>Documentation audit</li>
+                                <li>CPT accuracy checks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Appeal Management Process</h2>
+                <div class="appeal-management">
+                    <h3>Appeal Success Rates</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Medical Necessity</h3>
+                            <div class="amount">70%</div>
+                            <p>Appeal overturn rate</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Prior Auth</h3>
+                            <div class="amount">60%</div>
+                            <p>Retro-auth success</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Coding Errors</h3>
+                            <div class="amount">95%</div>
+                            <p>Correction success</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Overall</h3>
+                            <div class="amount">65%</div>
+                            <p>Combined success rate</p>
+                        </div>
+                    </div>
+
+                    <h3>Appeal Timeline Requirements</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payer</th>
+                                    <th>First Level</th>
+                                    <th>Second Level</th>
+                                    <th>External Review</th>
+                                    <th>Documentation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Medicare</strong></td>
+                                    <td>120 days</td>
+                                    <td>180 days</td>
+                                    <td>60 days</td>
+                                    <td>Full medical records</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Humana</strong></td>
+                                    <td>60 days</td>
+                                    <td>60 days</td>
+                                    <td>N/A</td>
+                                    <td>Clinical notes required</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>BCBS</strong></td>
+                                    <td>180 days</td>
+                                    <td>60 days</td>
+                                    <td>30 days</td>
+                                    <td>Varies by state</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>United</strong></td>
+                                    <td>180 days</td>
+                                    <td>60 days</td>
+                                    <td>External available</td>
+                                    <td>Online portal preferred</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Denial Metrics & KPIs</h2>
+                <div class="denial-kpis">
+                    <h3>Key Performance Indicators</h3>
+                    <div class="metric-card priority-medium">
+                        <h4>Current Performance:</h4>
+                        <ul>
+                            <li><strong>Initial denial rate:</strong> 5.1% overall</li>
+                            <li><strong>Days to resolve:</strong> 7-14 average</li>
+                            <li><strong>Appeal success rate:</strong> 65%</li>
+                            <li><strong>Preventable denials:</strong> 85% of total</li>
+                            <li><strong>Write-off rate:</strong> 0.8% of charges</li>
+                        </ul>
+                    </div>
+
+                    <h3>Target Performance Metrics</h3>
+                    <div class="recommendation">
+                        <h4>90-Day Goals:</h4>
+                        <ul>
+                            <li>Reduce initial denial rate to < 4%</li>
+                            <li>Improve appeal success to 75%</li>
+                            <li>Decrease resolution time to 5-7 days</li>
+                            <li>Prevent 95% of avoidable denials</li>
+                            <li>Maintain write-offs under 0.5%</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "api_key": "cr-37f5226fae640e4bd3ecd3d73e140934b08eac0455c7de1076e93b25d1",
+  "project": {
+    "name": "Billing Audit Documentation",
+    "type": "static-website",
+    "language": "html-css-js",
+    "framework": "vanilla"
+  },
+  "repository": {
+    "platform": "github",
+    "auto_review": true,
+    "review_on_push": true
+  },
+  "review_settings": {
+    "enabled": true,
+    "auto_approve_minor": false,
+    "require_approval_on": [
+      "high",
+      "critical"
+    ],
+    "review_depth": "comprehensive"
+  },
+  "quality_gates": {
+    "code_quality_threshold": 80,
+    "test_coverage_threshold": 60,
+    "accessibility_score": 90,
+    "performance_score": 85
+  },
+  "integrations": {
+    "mcp_filesystem": true,
+    "github_actions": true,
+    "slack_notifications": false
+  },
+  "endpoints": {
+    "review_api": "https://api.coderabbit.ai/v1/review",
+    "analysis_api": "https://api.coderabbit.ai/v1/analyze",
+    "health_check": "https://api.coderabbit.ai/v1/health"
+  },
+  "features": {
+    "ai_suggestions": true,
+    "auto_fix": false,
+    "security_scan": true,
+    "performance_check": true,
+    "accessibility_check": true
+  }
+}

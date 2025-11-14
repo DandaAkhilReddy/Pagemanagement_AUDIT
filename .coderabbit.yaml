@@ -1,0 +1,233 @@
+# CodeRabbit Configuration for Billing Audit Documentation
+# API Key: cr-37f5226fae640e4bd3ecd3d73e140934b08eac0455c7de1076e93b25d1
+
+# Language and framework settings
+language: "html"
+framework: "static-site"
+
+# Review settings
+reviews:
+  # Enable automatic code review on pull requests
+  auto_review: true
+
+  # Review focus areas
+  focus_areas:
+    - "code-quality"
+    - "best-practices"
+    - "performance"
+    - "accessibility"
+    - "security"
+
+  # Request changes for these severity levels
+  request_changes_on:
+    - "high"
+    - "critical"
+
+  # Enable inline comments
+  inline_comments: true
+
+  # Review entire pull request
+  review_all_commits: true
+
+# Path-based settings
+path_filters:
+  # Files to include in reviews
+  include:
+    - "**/*.html"
+    - "**/*.css"
+    - "**/*.js"
+    - "**/*.md"
+    - "**/*.json"
+
+  # Files to exclude from reviews
+  exclude:
+    - "node_modules/**"
+    - ".git/**"
+    - "*.min.js"
+    - "*.min.css"
+
+# Code quality rules
+rules:
+  # HTML quality checks
+  html:
+    - check_semantic_html: true
+    - validate_accessibility: true
+    - check_meta_tags: true
+    - validate_links: true
+
+  # CSS quality checks
+  css:
+    - check_browser_compatibility: true
+    - validate_selectors: true
+    - check_performance: true
+    - validate_media_queries: true
+
+  # JavaScript quality checks
+  javascript:
+    - enforce_strict_mode: false
+    - check_es6_compatibility: true
+    - validate_dom_manipulation: true
+    - check_event_listeners: true
+
+# Performance monitoring
+performance:
+  # Check for performance issues
+  enabled: true
+
+  # Performance thresholds
+  thresholds:
+    page_size_mb: 5
+    css_file_size_kb: 500
+    js_file_size_kb: 500
+    image_size_kb: 1000
+
+  # Optimization suggestions
+  suggest_optimizations: true
+
+# Accessibility checks
+accessibility:
+  # Enable WCAG compliance checks
+  enabled: true
+
+  # WCAG level (A, AA, AAA)
+  wcag_level: "AA"
+
+  # Check for common accessibility issues
+  checks:
+    - alt_text: true
+    - aria_labels: true
+    - color_contrast: true
+    - keyboard_navigation: true
+    - semantic_structure: true
+
+# Security checks
+security:
+  # Enable security scanning
+  enabled: true
+
+  # Check for common vulnerabilities
+  checks:
+    - xss_vulnerabilities: true
+    - inline_scripts: true
+    - external_resources: true
+    - content_security_policy: true
+
+# Documentation requirements
+documentation:
+  # Require documentation for complex code
+  required: true
+
+  # Minimum documentation coverage
+  min_coverage: 70
+
+  # Check for README updates
+  check_readme: true
+
+# Testing requirements
+testing:
+  # Enable test coverage checks
+  enabled: true
+
+  # Minimum test coverage
+  min_coverage: 60
+
+  # Test file patterns
+  test_file_patterns:
+    - "**/*.test.js"
+    - "**/*.spec.js"
+    - "**/tests/**"
+
+# CI/CD Integration
+ci_cd:
+  # Enable CI/CD integration
+  enabled: true
+
+  # Platforms to integrate with
+  platforms:
+    - github_actions
+    - gitlab_ci
+
+  # Run on these events
+  on_events:
+    - pull_request
+    - push
+    - merge
+
+# Comment style preferences
+comments:
+  # Tone of comments (professional, friendly, concise)
+  tone: "professional"
+
+  # Include code suggestions
+  include_suggestions: true
+
+  # Maximum comment length
+  max_length: 500
+
+# Custom checks for billing audit documentation
+custom_checks:
+  # Check for PHI/PII data exposure
+  - name: "Check for PHI/PII"
+    description: "Ensure no protected health information or personally identifiable information is exposed"
+    severity: "critical"
+    pattern: "\\b(SSN|social security|DOB|date of birth|patient name|medical record)\\b"
+
+  # Check for financial data security
+  - name: "Financial data protection"
+    description: "Verify financial data is properly anonymized"
+    severity: "high"
+    pattern: "\\b(account number|routing number|credit card)\\b"
+
+  # Check for proper documentation structure
+  - name: "Documentation completeness"
+    description: "Ensure all sections have proper headings and content"
+    severity: "medium"
+    min_section_length: 50
+
+# Notifications
+notifications:
+  # Send notifications for reviews
+  enabled: true
+
+  # Notification channels
+  channels:
+    - email
+    - github
+
+  # Events to notify about
+  events:
+    - review_completed
+    - critical_issues_found
+    - all_checks_passed
+
+# Rate limiting
+rate_limiting:
+  # Maximum reviews per hour
+  max_reviews_per_hour: 10
+
+  # Maximum API calls per minute
+  max_api_calls_per_minute: 60
+
+# Advanced features
+advanced:
+  # Enable AI-powered suggestions
+  ai_suggestions: true
+
+  # Auto-fix minor issues
+  auto_fix: false
+
+  # Learn from feedback
+  learning_mode: true
+
+  # Enable experimental features
+  experimental_features: false
+
+# Metadata
+metadata:
+  project_name: "Billing Audit Documentation"
+  project_type: "healthcare-documentation"
+  compliance_requirements:
+    - "HIPAA"
+    - "SOC2"
+  version: "1.0.0"
+  last_updated: "2024-11-14"

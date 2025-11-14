@@ -1,0 +1,54 @@
+{
+  "name": "billing-audit-documentation",
+  "version": "1.0.0",
+  "description": "Page Management Associates - RCM Audit Documentation Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "node tests/validation.test.js",
+    "lint:html": "htmlhint **/*.html",
+    "lint:css": "stylelint **/*.css",
+    "lint:js": "eslint **/*.js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "validate": "npm run lint && npm test",
+    "build": "echo 'Build complete - static site ready for deployment'",
+    "deploy:gh-pages": "gh-pages -d .",
+    "serve": "live-server --port=8080 --entry-file=index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/billing-audit-docs.git"
+  },
+  "keywords": [
+    "billing",
+    "audit",
+    "documentation",
+    "healthcare",
+    "RCM",
+    "revenue-cycle-management"
+  ],
+  "author": "Page Management Associates",
+  "license": "PROPRIETARY",
+  "bugs": {
+    "url": "https://github.com/yourusername/billing-audit-docs/issues"
+  },
+  "homepage": "https://yourusername.github.io/billing-audit-docs/",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "gh-pages": "^6.0.0",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11"
+  ]
+}

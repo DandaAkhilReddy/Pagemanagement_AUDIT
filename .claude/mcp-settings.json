@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "c:\\Users\\akhil\\OneDrive - hhamedicine.com\\HHA Medicine\\HHA W\\billing-audit-docs"
+      ],
+      "description": "MCP Filesystem server for billing audit documentation",
+      "enabled": true
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "c:\\Users\\akhil\\OneDrive - hhamedicine.com\\HHA Medicine\\HHA W\\billing-audit-docs"
+      ],
+      "description": "Git integration for version control",
+      "enabled": true
+    }
+  },
+  "permissions": {
+    "filesystem": {
+      "allowed_paths": [
+        "c:\\Users\\akhil\\OneDrive - hhamedicine.com\\HHA Medicine\\HHA W\\billing-audit-docs"
+      ],
+      "read": true,
+      "write": true,
+      "execute": false
+    }
+  },
+  "watchers": {
+    "auto_reload": true,
+    "watch_patterns": [
+      "**/*.html",
+      "**/*.css",
+      "**/*.js",
+      "**/*.md"
+    ],
+    "ignore_patterns": [
+      "node_modules/**",
+      ".git/**",
+      "*.tmp",
+      "*.log"
+    ]
+  },
+  "backup": {
+    "enabled": true,
+    "interval_minutes": 30,
+    "max_backups": 10,
+    "backup_path": ".backups"
+  }
+}

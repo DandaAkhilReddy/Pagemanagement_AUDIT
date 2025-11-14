@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Reconciliation - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html">Daily Operations</a></li>
+                <li><a href="payer-management.html">Payer Management</a></li>
+                <li><a href="critical-issues.html">Critical Issues</a></li>
+                <li><a href="denial-management.html">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html" class="active">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Financial Reconciliation</h1>
+                <p class="lead">Bank Deposit Matching, AR Movement, and Financial Controls</p>
+            </header>
+
+            <section>
+                <h2>Current Reconciliation Gap</h2>
+                <div class="gap-analysis">
+                    <div class="metric-card priority-high">
+                        <h3>Discrepancy Analysis</h3>
+                        <ul>
+                            <li><strong>Total Bank Deposits (Chris):</strong> Higher by ~$200,000</li>
+                            <li><strong>System Posted Amount (Lisa):</strong> Lower by same amount</li>
+                            <li><strong>Explained Variance:</strong> $140,000 (credit card hold - IRS issue)</li>
+                            <li><strong>Unexplained Gap:</strong> $60,000 (likely missing EOBs)</li>
+                            <li><strong>Investigation Status:</strong> In progress</li>
+                        </ul>
+                    </div>
+
+                    <h3>Root Cause Analysis</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Known Issues</h4>
+                            <ul>
+                                <li>Credit card processor held funds</li>
+                                <li>IRS update delayed release</li>
+                                <li>3-4 month delay in deposit</li>
+                                <li>No EOB for card payments</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Suspected Issues</h4>
+                            <ul>
+                                <li>Missing EOBs from payers</li>
+                                <li>Direct deposits without notice</li>
+                                <li>Batch splits across days</li>
+                                <li>Manual posting errors</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Process Gaps</h4>
+                            <ul>
+                                <li>Weekly vs daily reconciliation</li>
+                                <li>No automated matching</li>
+                                <li>Manual Excel tracking</li>
+                                <li>Inconsistent bank labels</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Bank Deposit Process Flow</h2>
+                <div class="deposit-flow">
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Payer Processes</div>
+                            <div class="step-description">Claim adjudication</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">EOB Generated</div>
+                            <div class="step-description">835 file created</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">ERA Receipt</div>
+                            <div class="step-description">Lisa downloads</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Bank Deposit</div>
+                            <div class="step-description">1-3 day lag</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Reconciliation</div>
+                            <div class="step-description">Match EOB to bank</div>
+                        </div>
+                    </div>
+
+                    <h3>Bank Label Mapping Issues</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payer Name</th>
+                                    <th>EOB Shows As</th>
+                                    <th>Bank Shows As</th>
+                                    <th>Matching Challenge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>United Healthcare</strong></td>
+                                    <td>United Healthcare</td>
+                                    <td>Optum</td>
+                                    <td>Name mismatch</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Medicare</strong></td>
+                                    <td>Medicare</td>
+                                    <td>CMS or NGS</td>
+                                    <td>Multiple labels</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>BCBS</strong></td>
+                                    <td>BCBS [State]</td>
+                                    <td>Anthem or BCBS</td>
+                                    <td>State variations</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Medicaid MCOs</strong></td>
+                                    <td>Plan name</td>
+                                    <td>Parent company</td>
+                                    <td>Completely different</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Credit Cards</strong></td>
+                                    <td>N/A</td>
+                                    <td>Processor name</td>
+                                    <td>No EOB reference</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>AR Movement Analysis</h2>
+                <div class="ar-movement">
+                    <h3>Daily AR Movement Tracking</h3>
+                    <div class="metric-card priority-medium">
+                        <h4>November 10, 2024 Snapshot:</h4>
+                        <ul>
+                            <li><strong>Florida 30-day improvement:</strong> $40,000 ($1.40M → $1.35M)</li>
+                            <li><strong>Current period spike:</strong> ~$1M Florida charges</li>
+                            <li><strong>Texas underbuilt:</strong> October charges incomplete</li>
+                            <li><strong>Overall AR days:</strong> Trending upward due to posting lag</li>
+                        </ul>
+                    </div>
+
+                    <h3>AR Aging Buckets - Enhanced Reporting</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>0-30 Days</h3>
+                            <div class="amount">$1.4M</div>
+                            <p>Current charges</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>31-60 Days</h3>
+                            <div class="amount">$800K</div>
+                            <p>Working actively</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>61-90 Days</h3>
+                            <div class="amount">$500K</div>
+                            <p>Appeals phase</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>91-120 Days</h3>
+                            <div class="amount">$350K</div>
+                            <p>Final efforts</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>120+ Days</h3>
+                            <div class="amount">$450K</div>
+                            <p>EnableComp</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>180+ Days</h3>
+                            <div class="amount">$200K</div>
+                            <p>Write-off review</p>
+                        </div>
+                    </div>
+
+                    <h3>AR Movement Methodology</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation">
+                            <h3>Dollar-Based Tracking (Preferred)</h3>
+                            <ul>
+                                <li>Shows actual cash movement</li>
+                                <li>Not skewed by charge volume changes</li>
+                                <li>Clear improvement/deterioration visibility</li>
+                                <li>Direct correlation to cash flow</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Percentage-Based Issues</h3>
+                            <ul>
+                                <li>Big charge spikes distort percentages</li>
+                                <li>Current bucket inflates when charges increase</li>
+                                <li>Misleading when comparing periods</li>
+                                <li>Use only as secondary metric</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Reconciliation Workflow</h2>
+                <div class="workflow">
+                    <h3>Current Manual Process</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">Step 1: Weekly Bank Register</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Chris exports bank deposits</li>
+                                    <li>Sends Excel file to Lisa</li>
+                                    <li>Shows date, amount, description</li>
+                                    <li>Includes check/EFT numbers</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Step 2: EOB Compilation</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Lisa compiles week's EOBs</li>
+                                    <li>Lists by payer and amount</li>
+                                    <li>Notes expected deposit dates</li>
+                                    <li>Tracks batch numbers</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Step 3: Manual Matching</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Match amounts first</li>
+                                    <li>Use date ranges based on payer lag</li>
+                                    <li>Identify unmatched deposits</li>
+                                    <li>Flag missing EOBs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Step 4: Investigation</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Research unmatched items</li>
+                                    <li>Contact payers for missing EOBs</li>
+                                    <li>Check for split deposits</li>
+                                    <li>Review posting errors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Proposed Automated Process</h3>
+                    <div class="metric-card priority-low">
+                        <h4>Automation Components:</h4>
+                        <ul>
+                            <li><strong>Bank API integration:</strong> Auto-import daily deposits</li>
+                            <li><strong>ERA auto-matching:</strong> Match by amount + date range</li>
+                            <li><strong>Payer mapping table:</strong> Handle name variations</li>
+                            <li><strong>Exception reporting:</strong> Flag unmatched items daily</li>
+                            <li><strong>Variance dashboard:</strong> Real-time discrepancy view</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cash Application Process</h2>
+                <div class="cash-application">
+                    <h3>Payment Posting Workflow</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">EOB Import</div>
+                            <div class="step-description">835 files loaded</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Patient Match</div>
+                            <div class="step-description">Link to accounts</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Payment Apply</div>
+                            <div class="step-description">Post by CPT</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Adjustments</div>
+                            <div class="step-description">CO45, deductibles</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Balance Transfer</div>
+                            <div class="step-description">To patient/secondary</div>
+                        </div>
+                    </div>
+
+                    <h3>Common Posting Challenges</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Matching Issues</h4>
+                            <ul>
+                                <li>Patient name variations</li>
+                                <li>Wrong DOS on EOB</li>
+                                <li>Bundled payments</li>
+                                <li>Recoupments</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Adjustment Codes</h4>
+                            <ul>
+                                <li>CO45 - Contractual</li>
+                                <li>CO96 - Non-covered</li>
+                                <li>PR1 - Deductible</li>
+                                <li>PR2 - Coinsurance</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>System Limitations</h4>
+                            <ul>
+                                <li>No bulk posting</li>
+                                <li>Manual adjustments</li>
+                                <li>Cannot auto-transfer</li>
+                                <li>No posting rules</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Financial Controls & Compliance</h2>
+                <div class="controls">
+                    <h3>Internal Controls</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation">
+                            <h3>Segregation of Duties</h3>
+                            <ul>
+                                <li>Lisa: System posting and reporting</li>
+                                <li>Chris: Bank access and deposits</li>
+                                <li>Separation of posting from deposit access</li>
+                                <li>Dual approval for adjustments >$500</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Audit Trail Requirements</h3>
+                            <ul>
+                                <li>All adjustments documented with reason</li>
+                                <li>User stamps on all transactions</li>
+                                <li>Screenshot proof of SFTP uploads</li>
+                                <li>Call reference numbers for payer contacts</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Reconciliation Metrics</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Variance Rate</h3>
+                            <div class="amount">2.8%</div>
+                            <p>EOB to bank variance</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Days to Resolve</h3>
+                            <div class="amount">5-7</div>
+                            <p>Variance investigation</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Unmatched</h3>
+                            <div class="amount">$60K</div>
+                            <p>Current outstanding</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Target</h3>
+                            <div class="amount"><1%</div>
+                            <p>Industry standard</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Recommended Improvements</h2>
+                <div class="improvements">
+                    <h3>Priority Action Items</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Improvement</th>
+                                    <th>Current State</th>
+                                    <th>Future State</th>
+                                    <th>Timeline</th>
+                                    <th>ROI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="high-priority">
+                                    <td><strong>Daily Reconciliation</strong></td>
+                                    <td>Weekly manual</td>
+                                    <td>Daily automated</td>
+                                    <td>2 weeks</td>
+                                    <td>5 hrs/week saved</td>
+                                </tr>
+                                <tr class="high-priority">
+                                    <td><strong>Bank Integration</strong></td>
+                                    <td>Manual export</td>
+                                    <td>API connection</td>
+                                    <td>1 month</td>
+                                    <td>Real-time visibility</td>
+                                </tr>
+                                <tr class="medium-priority">
+                                    <td><strong>Payer Mapping</strong></td>
+                                    <td>Mental tracking</td>
+                                    <td>System table</td>
+                                    <td>1 week</td>
+                                    <td>90% match rate</td>
+                                </tr>
+                                <tr class="medium-priority">
+                                    <td><strong>Auto-posting Rules</strong></td>
+                                    <td>100% manual</td>
+                                    <td>50% automated</td>
+                                    <td>6 weeks</td>
+                                    <td>$150K/day capacity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

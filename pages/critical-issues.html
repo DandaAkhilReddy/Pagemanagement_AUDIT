@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Issues - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html">Daily Operations</a></li>
+                <li><a href="payer-management.html">Payer Management</a></li>
+                <li><a href="critical-issues.html" class="active">Critical Issues</a></li>
+                <li><a href="denial-management.html">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Critical Issues</h1>
+                <p class="lead">Major Operational Pain Points Requiring Immediate Attention</p>
+            </header>
+
+            <section>
+                <h2>Issue #1: Duplicate Encounter Problem</h2>
+                <div class="issue-details">
+                    <div class="metric-card priority-high">
+                        <h3>Impact Assessment</h3>
+                        <ul>
+                            <li><strong>Staff Efficiency Loss:</strong> 40% rework rate</li>
+                            <li><strong>Accounts Affected:</strong> 2-3 touches per duplicate</li>
+                            <li><strong>Facilities Most Impacted:</strong> Palms Hospital, JFK Medical Center</li>
+                            <li><strong>Time Wasted:</strong> ~15 hours/week on duplicate management</li>
+                        </ul>
+                    </div>
+
+                    <h3>Root Cause Analysis</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">Primary Cause: 24-Hour System Lag</div>
+                            <div class="timeline-content">
+                                <h4>The Problem:</h4>
+                                <ul>
+                                    <li>Patient seen on Day T doesn't appear in system until Day T+1</li>
+                                    <li>Providers can't wait 24 hours to document charges</li>
+                                    <li>Providers manually create patient records to bill same day</li>
+                                    <li>When census team enters patient next day, duplicate is created</li>
+                                </ul>
+                                <h4>System Architecture Issue:</h4>
+                                <ul>
+                                    <li>IngeniousMed → AdvancedMD sync runs once daily</li>
+                                    <li>No real-time API available</li>
+                                    <li>No "pending sync" indicator for providers</li>
+                                    <li>No duplicate detection before creation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Secondary Cause: Census Processing</div>
+                            <div class="timeline-content">
+                                <h4>Census Duplication Issues:</h4>
+                                <ul>
+                                    <li>Adjacent-day census PDFs contain same patients</li>
+                                    <li>Example: Patient on 11/16 census also appears on 11/17</li>
+                                    <li>No automated comparison between days</li>
+                                    <li>Manual review often misses duplicates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Proposed Solutions</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation">
+                            <h3>Immediate Mitigation (Week 1)</h3>
+                            <ul>
+                                <li>Sort census by Name + DOB before entry</li>
+                                <li>Compare adjacent-day census lists side-by-side</li>
+                                <li>Flag potential duplicates: Same DOS + LOS + Provider</li>
+                                <li>Verify admit/discharge dates match</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Short-term Fix (Weeks 2-4)</h3>
+                            <ul>
+                                <li>Build duplicate detection report in Excel/SQL</li>
+                                <li>Match on: Name, DOB, DOS, Provider, LOS</li>
+                                <li>Run daily before billing submission</li>
+                                <li>Export "Review Duplicates" CSV for staff</li>
+                            </ul>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Long-term Solution (Months 2-3)</h3>
+                            <ul>
+                                <li>Implement real-time IM ↔ AMD sync</li>
+                                <li>Add "pending sync" indicator in IngeniousMed</li>
+                                <li>Pre-bill duplicate validator in AMD</li>
+                                <li>Automated merge functionality</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Issue #2: Payment Posting Backlog</h2>
+                <div class="issue-details">
+                    <div class="metric-card priority-high">
+                        <h3>Current Status</h3>
+                        <ul>
+                            <li><strong>Backlog Amount:</strong> $237,000 ready to post</li>
+                            <li><strong>Daily Target:</strong> $100,000+</li>
+                            <li><strong>Actual Daily Average:</strong> $75,000</li>
+                            <li><strong>Days to Clear:</strong> 3+ at current rate</li>
+                        </ul>
+                    </div>
+
+                    <h3>Contributing Factors</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Process Inefficiencies</h4>
+                            <ul>
+                                <li>100% manual posting process</li>
+                                <li>Each payment posted individually</li>
+                                <li>No auto-posting rules configured</li>
+                                <li>Complex adjustment codes require research</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Schedule Constraints</h4>
+                            <ul>
+                                <li>Posting limited to afternoons only</li>
+                                <li>Morning focus on AR follow-ups</li>
+                                <li>Staff split between multiple tasks</li>
+                                <li>No dedicated posting team</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>System Limitations</h4>
+                            <ul>
+                                <li>ERA import issues</li>
+                                <li>Missing batch numbers</li>
+                                <li>Manual matching required</li>
+                                <li>No bulk posting capability</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Impact Analysis</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Cash Flow</h3>
+                            <div class="amount">$237K</div>
+                            <p>Delayed revenue recognition</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>AR Days</h3>
+                            <div class="amount">+3 Days</div>
+                            <p>Artificial AR inflation</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Staff Stress</h3>
+                            <div class="amount">High</div>
+                            <p>Constant catch-up mode</p>
+                        </div>
+                    </div>
+
+                    <h3>Resolution Strategy</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Timeline</th>
+                                    <th>Resources</th>
+                                    <th>Expected Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Overtime Authorization</strong></td>
+                                    <td>Immediate</td>
+                                    <td>2 staff x 10 hrs/week</td>
+                                    <td>Clear backlog in 5 days</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Temporary Staff</strong></td>
+                                    <td>1 week</td>
+                                    <td>2 temps for 2 weeks</td>
+                                    <td>Maintain daily target</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Auto-posting Rules</strong></td>
+                                    <td>2 weeks</td>
+                                    <td>IT configuration</td>
+                                    <td>50% reduction in manual work</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RPA Implementation</strong></td>
+                                    <td>2 months</td>
+                                    <td>Vendor selection</td>
+                                    <td>75% automation rate</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Issue #3: EnableComp Transparency Gap</h2>
+                <div class="issue-details">
+                    <div class="metric-card priority-medium">
+                        <h3>Current Problems</h3>
+                        <ul>
+                            <li><strong>No patient-level reporting:</strong> Unknown which accounts being worked</li>
+                            <li><strong>Missing status updates:</strong> No weekly progress reports</li>
+                            <li><strong>File transfer issues:</strong> Sept/Oct files still not pulled</li>
+                            <li><strong>ROI unclear:</strong> Cannot measure effectiveness</li>
+                        </ul>
+                    </div>
+
+                    <h3>Information Black Hole</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">?</div>
+                            <div class="step-title">Accounts Sent</div>
+                            <div class="step-description">120+ day AR list</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">?</div>
+                            <div class="step-title">EnableComp Work</div>
+                            <div class="step-description">Unknown process</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">?</div>
+                            <div class="step-title">Results</div>
+                            <div class="step-description">No reporting</div>
+                        </div>
+                    </div>
+
+                    <h3>Required Reporting Structure</h3>
+                    <div class="recommendation">
+                        <h4>Weekly Status Report Should Include:</h4>
+                        <ul>
+                            <li>Patient-level work list with current status</li>
+                            <li>Actions taken per account</li>
+                            <li>Payments collected</li>
+                            <li>Accounts closed/written off</li>
+                            <li>Pending items and blockers</li>
+                            <li>Next week's priorities</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Issue #4: Bank Reconciliation Discrepancy</h2>
+                <div class="issue-details">
+                    <div class="metric-card priority-high">
+                        <h3>Financial Gap Analysis</h3>
+                        <ul>
+                            <li><strong>Total Discrepancy:</strong> ~$200,000</li>
+                            <li><strong>Explained Portion:</strong> $140,000 (credit card hold)</li>
+                            <li><strong>Unexplained Gap:</strong> $60,000</li>
+                            <li><strong>Likely Cause:</strong> Missing EOBs from payers</li>
+                        </ul>
+                    </div>
+
+                    <h3>Reconciliation Challenges</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Process Issues</h4>
+                            <ul>
+                                <li>Manual weekly reconciliation</li>
+                                <li>No automated matching</li>
+                                <li>Bank labels don't match payer names</li>
+                                <li>Batch numbers missing</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Data Issues</h4>
+                            <ul>
+                                <li>EOBs not always received</li>
+                                <li>Deposits split across days</li>
+                                <li>Optum vs United labeling</li>
+                                <li>Credit card timing delays</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Resolution Plan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">Week 1: Investigation</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Get October/November bank registers from Chris</li>
+                                    <li>Match all deposits to EOBs by amount</li>
+                                    <li>Identify patterns in unmatched deposits</li>
+                                    <li>Contact payers for missing EOBs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">Week 2: Process Implementation</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Daily reconciliation instead of weekly</li>
+                                    <li>Create payer-to-bank name mapping table</li>
+                                    <li>Implement three-way match process</li>
+                                    <li>Flag discrepancies same day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Issue #5: SFTP File Management</h2>
+                <div class="issue-details">
+                    <div class="metric-card priority-medium">
+                        <h3>Current Problems</h3>
+                        <ul>
+                            <li><strong>October 7 & 23 files:</strong> Still sitting unpulled</li>
+                            <li><strong>No acknowledgment system:</strong> Recipients don't confirm</li>
+                            <li><strong>Manual proof required:</strong> Screenshot timestamps</li>
+                            <li><strong>No archiving:</strong> Old files accumulate</li>
+                        </ul>
+                    </div>
+
+                    <h3>Quick Fix Implementation</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation">
+                            <h3>SFTP Watchdog System</h3>
+                            <ul>
+                                <li>Monitor file drops with timestamps</li>
+                                <li>24-hour timer after upload</li>
+                                <li>Auto-notify if not pulled</li>
+                                <li>Escalate after 48 hours</li>
+                                <li>Auto-archive after confirmed pull</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Risk Assessment Matrix</h2>
+                <div class="risk-matrix">
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Issue</th>
+                                    <th>Risk Level</th>
+                                    <th>Financial Impact</th>
+                                    <th>Operational Impact</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="high-priority">
+                                    <td><strong>Duplicate Encounters</strong></td>
+                                    <td>Critical</td>
+                                    <td>$500K/year waste</td>
+                                    <td>40% efficiency loss</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr class="high-priority">
+                                    <td><strong>Posting Backlog</strong></td>
+                                    <td>Critical</td>
+                                    <td>$237K delayed</td>
+                                    <td>Cash flow impact</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr class="high-priority">
+                                    <td><strong>Bank Reconciliation</strong></td>
+                                    <td>High</td>
+                                    <td>$60K unaccounted</td>
+                                    <td>Audit risk</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr class="medium-priority">
+                                    <td><strong>Humana Delays</strong></td>
+                                    <td>High</td>
+                                    <td>30+ day delays</td>
+                                    <td>AR inflation</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr class="medium-priority">
+                                    <td><strong>EnableComp</strong></td>
+                                    <td>Medium</td>
+                                    <td>Unknown ROI</td>
+                                    <td>No visibility</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

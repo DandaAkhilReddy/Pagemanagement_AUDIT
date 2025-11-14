@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Operations - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html" class="active">Daily Operations</a></li>
+                <li><a href="payer-management.html">Payer Management</a></li>
+                <li><a href="critical-issues.html">Critical Issues</a></li>
+                <li><a href="denial-management.html">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Daily Operations</h1>
+                <p class="lead">Operational Cadence, Workflows, and Report Management</p>
+            </header>
+
+            <section>
+                <h2>Daily Schedule Overview</h2>
+                <div class="schedule-overview">
+                    <h3>New Operating Cadence (Effective November 1, 2024)</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">AM</div>
+                            <div class="step-title">Morning Session</div>
+                            <div class="step-description">AR Follow-ups & Collections</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">PM</div>
+                            <div class="step-title">Afternoon Session</div>
+                            <div class="step-description">Payment Posting ($100K+ target)</div>
+                        </div>
+                    </div>
+
+                    <h3>Previous Schedule Issues (Pre-November)</h3>
+                    <div class="metric-card priority-high" style="margin-top: 1.5rem;">
+                        <h4>Old Weekly Cadence Problems:</h4>
+                        <ul>
+                            <li><strong>Monday-Tuesday:</strong> Posting only - created AR buildup</li>
+                            <li><strong>Wednesday-Thursday:</strong> AR work only - posting backlog grew</li>
+                            <li><strong>Friday:</strong> Self-pay + posting - inconsistent coverage</li>
+                            <li><strong>Result:</strong> Uneven AR swings and cash flow disruption</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Morning Operations (8:00 AM - 12:00 PM)</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:00 AM - Census Review</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Receive daily census from facilities (PDF format)</li>
+                                <li>Review new admissions and discharges</li>
+                                <li>Compare with yesterday's census for changes</li>
+                                <li>Identify potential duplicates before entry</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:30 AM - Patient Registration</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Enter new patients from census</li>
+                                <li>Verify insurance eligibility</li>
+                                <li>Update demographics for existing patients</li>
+                                <li>Flag accounts needing additional information</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">9:00 AM - AR Work Begins</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Review aging reports by payer</li>
+                                <li>Priority: 60-90 day accounts</li>
+                                <li>Call insurance for claim status</li>
+                                <li>Submit medical records as requested</li>
+                                <li>Appeal denials with documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 AM - Denial Management</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Review new denials from overnight ERA</li>
+                                <li>Categorize by denial reason</li>
+                                <li>Route to appropriate team member</li>
+                                <li>Initiate appeals for medical necessity</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">11:00 AM - Report Generation</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Pull AR aging reports from AdvancedMD</li>
+                                <li>Generate daily collection priorities</li>
+                                <li>Update tracking spreadsheets</li>
+                                <li>Prepare SFTP drops for assignments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Afternoon Operations (12:00 PM - 5:00 PM)</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 PM - ERA Download</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Download morning ERA/EOB files</li>
+                                <li>Import 835 files into AdvancedMD</li>
+                                <li>Print posting worksheets</li>
+                                <li>Identify any missing batches</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">1:00 PM - Payment Posting Begins</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Post Medicare payments first (highest volume)</li>
+                                <li>Process commercial insurance ERAs</li>
+                                <li>Apply contractual adjustments (CO45)</li>
+                                <li>Transfer patient responsibilities</li>
+                                <li>Target: Post $100,000+ daily</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">3:00 PM - Secondary Claims</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Generate secondary claims from primary EOBs</li>
+                                <li>Attach primary EOB documentation</li>
+                                <li>Submit to secondary insurance</li>
+                                <li>Track crossover claims</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">4:00 PM - Claim Transmission</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Manual transmission batch (886 claims example)</li>
+                                <li>Review transmission acknowledgments</li>
+                                <li>Address any rejection notices</li>
+                                <li>Prepare for 7 PM auto-transmission</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">5:00 PM - Daily Wrap-up</div>
+                        <div class="timeline-content">
+                            <h4>Activities:</h4>
+                            <ul>
+                                <li>Update posting totals in tracker</li>
+                                <li>Note unfinished items for tomorrow</li>
+                                <li>Send daily summary to leadership</li>
+                                <li>Set priorities for next day</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Report Management & SFTP Operations</h2>
+                <div class="report-management">
+                    <h3>SFTP Drop Schedule</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Report Type</th>
+                                    <th>Frequency</th>
+                                    <th>Drop Time</th>
+                                    <th>Content</th>
+                                    <th>Recipients</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Payment Report</strong></td>
+                                    <td>Daily</td>
+                                    <td>6:00 AM</td>
+                                    <td>Prior day's posted payments</td>
+                                    <td>Finance team</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Assignment Report</strong></td>
+                                    <td>Mon/Wed/Fri</td>
+                                    <td>8:00 AM</td>
+                                    <td>Collections work list</td>
+                                    <td>AR team</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AR Aging</strong></td>
+                                    <td>Weekly</td>
+                                    <td>Monday 7:00 AM</td>
+                                    <td>Detailed aging buckets</td>
+                                    <td>Leadership</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Denial Analysis</strong></td>
+                                    <td>Weekly</td>
+                                    <td>Tuesday 7:00 AM</td>
+                                    <td>Denial categories by payer</td>
+                                    <td>Coding team</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>EnableComp Files</strong></td>
+                                    <td>Monthly</td>
+                                    <td>1st of month</td>
+                                    <td>120+ day accounts + 837s</td>
+                                    <td>EnableComp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Report Distribution Issues</h3>
+                    <div class="metric-card priority-high">
+                        <h4>Current Problems:</h4>
+                        <ul>
+                            <li><strong>October 7 & 23 files:</strong> Still sitting in SFTP folders unpulled</li>
+                            <li><strong>No confirmation system:</strong> Recipients don't acknowledge receipt</li>
+                            <li><strong>Manual proof required:</strong> Lisa screenshots timestamps for disputes</li>
+                            <li><strong>No auto-archiving:</strong> Old files accumulate in folders</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Monthly Closing Process</h2>
+                <div class="monthly-process">
+                    <h3>Month-End Timeline (Example: October 2024)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">November 10 (Month + 10 days)</div>
+                            <div class="timeline-content">
+                                <h4>Provider Deadline:</h4>
+                                <ul>
+                                    <li>All October charges must be entered</li>
+                                    <li>Doctors complete documentation</li>
+                                    <li>Final charge capture in IngeniousMed</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">November 11 - "Attack October"</div>
+                            <div class="timeline-content">
+                                <h4>Billing Team Actions:</h4>
+                                <ul>
+                                    <li>Pull all October charges from system</li>
+                                    <li>Intensive coding review</li>
+                                    <li>Submit all October claims</li>
+                                    <li>Clear October charge backlogs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">November 15 - AR Analysis</div>
+                            <div class="timeline-content">
+                                <h4>Financial Review:</h4>
+                                <ul>
+                                    <li>Calculate October collection rate</li>
+                                    <li>Analyze AR movement by bucket</li>
+                                    <li>Identify problem accounts</li>
+                                    <li>Prepare leadership reports</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Performance Indicators - Daily Tracking</h2>
+                <div class="kpi-tracking">
+                    <h3>Daily Metrics Dashboard</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Claims Submitted</h3>
+                            <div class="amount">800-900</div>
+                            <p>Daily average</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Payments Posted</h3>
+                            <div class="amount">$100K+</div>
+                            <p>Daily target</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>AR Touched</h3>
+                            <div class="amount">150-200</div>
+                            <p>Accounts worked</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Denials Resolved</h3>
+                            <div class="amount">30-40</div>
+                            <p>Daily average</p>
+                        </div>
+                    </div>
+
+                    <h3>Today's Snapshot (November 10, 2024)</h3>
+                    <div class="metric-card priority-medium">
+                        <h4>Real-time Status:</h4>
+                        <ul>
+                            <li><strong>United approvals:</strong> $32,000 received today</li>
+                            <li><strong>Medicare payments:</strong> $13,000 posted</li>
+                            <li><strong>Posting backlog:</strong> $237,000 ready to process</li>
+                            <li><strong>FL 30-day AR:</strong> Improved $40K ($1.40M → $1.35M)</li>
+                            <li><strong>Transmission:</strong> 886 claims sent at 4 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Communication Protocols</h2>
+                <div class="communication">
+                    <h3>Internal Communication Channels</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>WhatsApp - Urgent Issues</h4>
+                            <ul>
+                                <li>System outages</li>
+                                <li>Payer portal issues</li>
+                                <li>Critical claim problems</li>
+                                <li>Staff coverage needs</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>GroupMe - Team Coordination</h4>
+                            <ul>
+                                <li>Daily priorities</li>
+                                <li>Work distribution</li>
+                                <li>Status updates</li>
+                                <li>Meeting reminders</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Email - Formal Documentation</h4>
+                            <ul>
+                                <li>Audit results</li>
+                                <li>Policy changes</li>
+                                <li>Payer correspondence</li>
+                                <li>Leadership reports</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Meeting Schedule</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Meeting</th>
+                                    <th>Frequency</th>
+                                    <th>Time</th>
+                                    <th>Participants</th>
+                                    <th>Focus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Daily Huddle</strong></td>
+                                    <td>Daily</td>
+                                    <td>8:00 AM</td>
+                                    <td>All staff</td>
+                                    <td>Priorities & issues</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AR Review</strong></td>
+                                    <td>Weekly</td>
+                                    <td>Mon 2:00 PM</td>
+                                    <td>Lisa, Chris, Maribel</td>
+                                    <td>AR movement analysis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Denial Review</strong></td>
+                                    <td>Weekly</td>
+                                    <td>Wed 10:00 AM</td>
+                                    <td>Coding team</td>
+                                    <td>Denial patterns</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Process Improvement</strong></td>
+                                    <td>Bi-weekly</td>
+                                    <td>Fri 2:00 PM</td>
+                                    <td>Leadership + Dinesh</td>
+                                    <td>Automation planning</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

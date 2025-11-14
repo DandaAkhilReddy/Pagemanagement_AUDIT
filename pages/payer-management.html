@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payer Management - PMA RCM Audit</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/interactive.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>PMA RCM Audit</h2>
+                <p class="subtitle">Revenue Cycle Documentation</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Executive Summary</a></li>
+                <li><a href="company-overview.html">Company Overview</a></li>
+                <li><a href="revenue-cycle-process.html">Revenue Cycle Process</a></li>
+                <li><a href="daily-operations.html">Daily Operations</a></li>
+                <li><a href="payer-management.html" class="active">Payer Management</a></li>
+                <li><a href="critical-issues.html">Critical Issues</a></li>
+                <li><a href="denial-management.html">Denial Management</a></li>
+                <li><a href="financial-reconciliation.html">Financial Reconciliation</a></li>
+                <li><a href="automation-recommendations.html">Automation Roadmap</a></li>
+                <li><a href="metrics-kpis.html">Metrics & KPIs</a></li>
+            </ul>
+            <div class="audit-info">
+                <p><strong>Audit Date:</strong> November 2024</p>
+                <p><strong>Auditor:</strong> Process Team</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <header class="page-header">
+                <h1>Payer Management</h1>
+                <p class="lead">Insurance Payment Patterns, Timelines, and Payer-Specific Workflows</p>
+            </header>
+
+            <section>
+                <h2>Payer Payment Timeline Analysis</h2>
+                <div class="payer-analysis">
+                    <h3>EOB to Bank Deposit Lag Patterns</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Insurance Company</th>
+                                    <th>Average Lag</th>
+                                    <th>Pattern</th>
+                                    <th>Bank Label</th>
+                                    <th>Special Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="high-priority">
+                                    <td><strong>Humana</strong></td>
+                                    <td>3 days</td>
+                                    <td>Consistent delay</td>
+                                    <td>Humana</td>
+                                    <td>Confirms EOB early but deposits late</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Blue Cross Blue Shield</strong></td>
+                                    <td>1 day</td>
+                                    <td>Predictable</td>
+                                    <td>BCBS/Anthem</td>
+                                    <td>Next-day deposit standard</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Medicare</strong></td>
+                                    <td>0-1 day early</td>
+                                    <td>Often early</td>
+                                    <td>CMS/NGS</td>
+                                    <td>Deposits before EOB date shown</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>United Healthcare</strong></td>
+                                    <td>Variable</td>
+                                    <td>Inconsistent</td>
+                                    <td>Optum</td>
+                                    <td>Shows as "Optum" in bank</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Aetna</strong></td>
+                                    <td>Pre-notified</td>
+                                    <td>Advance notice</td>
+                                    <td>Aetna/CVS</td>
+                                    <td>Provides future payment date</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TriWest</strong></td>
+                                    <td>2-3 days</td>
+                                    <td>Slow</td>
+                                    <td>TriWest</td>
+                                    <td>Authorization issues common</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sunshine Health</strong></td>
+                                    <td>2 days</td>
+                                    <td>Regular</td>
+                                    <td>Centene</td>
+                                    <td>Medicaid replacement plan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Humana - Special Focus</h2>
+                <div class="humana-focus">
+                    <h3>New Medical Records Process (October 2024 Change)</h3>
+                    <div class="metric-card priority-high">
+                        <h4>30-Day Pending Letter Scheme:</h4>
+                        <ul>
+                            <li><strong>Step 1:</strong> Humana requests medical records</li>
+                            <li><strong>Step 2:</strong> Isaiah uploads records + sends invoice ($2/page per FL statute)</li>
+                            <li><strong>Step 3:</strong> Humana auto-generates "pending/finding" letter</li>
+                            <li><strong>Step 4:</strong> Adds 30 more days to payment timeline</li>
+                            <li><strong>Impact:</strong> Payment delays increased by 30+ days</li>
+                            <li><strong>Counter-measure:</strong> Track and enforce interest on late payments</li>
+                        </ul>
+                    </div>
+
+                    <h3>Humana Tracking Spreadsheet</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Data Points Tracked</h4>
+                            <ul>
+                                <li>Claim number</li>
+                                <li>Patient name</li>
+                                <li>DOS (Date of Service)</li>
+                                <li>Record request date</li>
+                                <li>Upload completion date</li>
+                                <li>Invoice sent date</li>
+                                <li>Pending letter date</li>
+                                <li>Due date (letter + 30)</li>
+                                <li>Payment received date</li>
+                                <li>Interest owed Y/N</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Invoice Process</h4>
+                            <ul>
+                                <li>Per-upload invoicing (not bulk)</li>
+                                <li>$2 per page (Florida statute)</li>
+                                <li>Include page count</li>
+                                <li>Reference claim numbers</li>
+                                <li>Track invoice numbers</li>
+                                <li>30-day payment terms</li>
+                                <li>Interest calculation if late</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Medicare Processing</h2>
+                <div class="medicare-details">
+                    <h3>Payment Characteristics</h3>
+                    <div class="summary-grid">
+                        <div class="metric-card priority-low">
+                            <h3>Payment Speed</h3>
+                            <ul>
+                                <li><strong>EOB to deposit:</strong> 0-1 day early</li>
+                                <li><strong>Clean claims:</strong> 14-day average</li>
+                                <li><strong>Volume:</strong> Highest payer</li>
+                                <li><strong>Reliability:</strong> Most consistent</li>
+                            </ul>
+                        </div>
+                        <div class="metric-card priority-medium">
+                            <h3>Adjustments</h3>
+                            <ul>
+                                <li><strong>CO45:</strong> Contractual write-offs</li>
+                                <li><strong>Sequestration:</strong> 2% reduction</li>
+                                <li><strong>Deductible:</strong> Patient responsibility</li>
+                                <li><strong>Coinsurance:</strong> 20% typical</li>
+                            </ul>
+                        </div>
+                        <div class="metric-card priority-low">
+                            <h3>Common CPTs</h3>
+                            <ul>
+                                <li><strong>99223:</strong> Initial hospital care</li>
+                                <li><strong>99233:</strong> Subsequent care</li>
+                                <li><strong>99291:</strong> Critical care first hour</li>
+                                <li><strong>99292:</strong> Critical care additional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Commercial Payer Patterns</h2>
+                <div class="commercial-patterns">
+                    <h3>Blue Cross Blue Shield</h3>
+                    <div class="recommendation">
+                        <h4>Processing Characteristics:</h4>
+                        <ul>
+                            <li>1-day payment lag (very predictable)</li>
+                            <li>Prior authorization required for many services</li>
+                            <li>Multiple plan types (HMO, PPO, EPO)</li>
+                            <li>Different processing by state</li>
+                            <li>Good electronic capabilities</li>
+                        </ul>
+                    </div>
+
+                    <h3>United Healthcare / Optum</h3>
+                    <div class="recommendation">
+                        <h4>Processing Characteristics:</h4>
+                        <ul>
+                            <li>Variable payment timing</li>
+                            <li>Shows as "Optum" in bank deposits</li>
+                            <li>Complex authorization requirements</li>
+                            <li>Multiple product lines</li>
+                            <li>$32,000 approved today (example)</li>
+                        </ul>
+                    </div>
+
+                    <h3>Aetna</h3>
+                    <div class="recommendation">
+                        <h4>Processing Characteristics:</h4>
+                        <ul>
+                            <li>Pre-notification of payment dates</li>
+                            <li>Generally reliable timing</li>
+                            <li>CVS Health integration</li>
+                            <li>Good portal access</li>
+                            <li>Clear EOB documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Medicaid Replacement Plans</h2>
+                <div class="medicaid-plans">
+                    <h3>Common Issues</h3>
+                    <div class="metric-card priority-high">
+                        <h4>Coverage Confusion:</h4>
+                        <ul>
+                            <li><strong>Wrong plan billed:</strong> Traditional vs. replacement</li>
+                            <li><strong>Hospice override:</strong> Hospice takes precedence</li>
+                            <li><strong>Eligibility changes:</strong> Monthly updates needed</li>
+                            <li><strong>Authorization delays:</strong> Hospital-side failures</li>
+                            <li><strong>Network issues:</strong> In/out of network confusion</li>
+                        </ul>
+                    </div>
+
+                    <h3>Major Medicaid Replacement Carriers</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Carrier</th>
+                                    <th>Parent Company</th>
+                                    <th>States</th>
+                                    <th>Key Issues</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Sunshine Health</strong></td>
+                                    <td>Centene</td>
+                                    <td>Florida</td>
+                                    <td>Authorization delays</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>WellCare</strong></td>
+                                    <td>Centene</td>
+                                    <td>FL, TX</td>
+                                    <td>Complex eligibility</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Molina</strong></td>
+                                    <td>Molina Healthcare</td>
+                                    <td>Florida</td>
+                                    <td>Slow payments</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Simply/Clear Health</strong></td>
+                                    <td>Anthem</td>
+                                    <td>Florida</td>
+                                    <td>Documentation requests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Payer Portal Management</h2>
+                <div class="portal-management">
+                    <h3>Portal Access & Functionality</h3>
+                    <div class="scope-grid">
+                        <div class="scope-item">
+                            <h4>Daily Portal Checks</h4>
+                            <ul>
+                                <li>ERA/EOB downloads</li>
+                                <li>Claim status updates</li>
+                                <li>Authorization status</li>
+                                <li>Eligibility verification</li>
+                                <li>Remittance reports</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Portal Credentials</h4>
+                            <ul>
+                                <li>Managed by Lisa</li>
+                                <li>Shared team access</li>
+                                <li>Password rotation quarterly</li>
+                                <li>Multi-factor authentication</li>
+                                <li>Backup access methods</li>
+                            </ul>
+                        </div>
+                        <div class="scope-item">
+                            <h4>Common Portal Issues</h4>
+                            <ul>
+                                <li>Timeout problems</li>
+                                <li>Download failures</li>
+                                <li>Missing remittances</li>
+                                <li>Access lockouts</li>
+                                <li>System maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Payment Reconciliation by Payer</h2>
+                <div class="reconciliation">
+                    <h3>Tracking Methodology</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">EOB Receipt</div>
+                            <div class="step-description">Log date & amount</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Expected Deposit</div>
+                            <div class="step-description">Calculate based on lag</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Bank Match</div>
+                            <div class="step-description">Verify actual deposit</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Variance Report</div>
+                            <div class="step-description">Flag discrepancies</div>
+                        </div>
+                    </div>
+
+                    <h3>Excel Tracking Fields</h3>
+                    <div class="metric-card priority-medium">
+                        <h4>Data Points Captured:</h4>
+                        <ul>
+                            <li><strong>EOB Date:</strong> When remittance received</li>
+                            <li><strong>Payer Name:</strong> Insurance company</li>
+                            <li><strong>Check/EFT Number:</strong> Payment reference</li>
+                            <li><strong>EOB Amount:</strong> Total on remittance</li>
+                            <li><strong>Expected Deposit Date:</strong> EOB date + known lag</li>
+                            <li><strong>Actual Deposit Date:</strong> From bank register</li>
+                            <li><strong>Bank Amount:</strong> Actual deposit</li>
+                            <li><strong>Variance:</strong> EOB vs Bank difference</li>
+                            <li><strong>Status:</strong> Matched/Pending/Missing</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Payer Communication Protocols</h2>
+                <div class="communication-protocols">
+                    <h3>Escalation Matrix</h3>
+                    <div class="action-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Issue Type</th>
+                                    <th>First Contact</th>
+                                    <th>Escalation</th>
+                                    <th>Timeline</th>
+                                    <th>Documentation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Missing Payment</strong></td>
+                                    <td>Provider rep</td>
+                                    <td>Supervisor</td>
+                                    <td>After 5 days</td>
+                                    <td>Call reference #</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Denied Claim</strong></td>
+                                    <td>Claims dept</td>
+                                    <td>Appeals unit</td>
+                                    <td>Within 30 days</td>
+                                    <td>Appeal letter</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Wrong Payment</strong></td>
+                                    <td>Adjustments</td>
+                                    <td>Supervisor</td>
+                                    <td>Immediately</td>
+                                    <td>Adjustment form</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Authorization Issue</strong></td>
+                                    <td>Auth dept</td>
+                                    <td>Medical director</td>
+                                    <td>Before DOS</td>
+                                    <td>Auth number</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Records Request</strong></td>
+                                    <td>Medical records</td>
+                                    <td>Compliance</td>
+                                    <td>5 business days</td>
+                                    <td>Fax confirmation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Payer Performance Metrics</h2>
+                <div class="performance-metrics">
+                    <h3>Key Performance Indicators by Payer</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <h3>Days to Pay</h3>
+                            <div class="amount">15-30</div>
+                            <p>Clean claim average</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Denial Rate</h3>
+                            <div class="amount">5-8%</div>
+                            <p>By payer average</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>Appeal Success</h3>
+                            <div class="amount">65%</div>
+                            <p>Overturn rate</p>
+                        </div>
+                        <div class="impact-card">
+                            <h3>First Pass Rate</h3>
+                            <div class="amount">92%</div>
+                            <p>Clean claim rate</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Document prepared for: Leadership Team | Date: November 2024</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
