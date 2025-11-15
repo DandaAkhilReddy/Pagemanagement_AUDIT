@@ -55,34 +55,40 @@
                     <h3>Root Cause Analysis</h3>
                     <div class="timeline">
                         <div class="timeline-item">
-                            <div class="timeline-time">Primary Cause: 24-Hour System Lag</div>
+                            <div class="timeline-time">Primary Cause: User Error in Patient Search</div>
                             <div class="timeline-content">
                                 <h4>The Problem:</h4>
                                 <ul>
-                                    <li>Patient seen on Day T doesn't appear in system until Day T+1</li>
-                                    <li>Providers can't wait 24 hours to document charges</li>
-                                    <li>Providers manually create patient records to bill same day</li>
-                                    <li>When census team enters patient next day, duplicate is created</li>
+                                    <li>Doctors cannot quickly locate existing patients in IngeniousMed search</li>
+                                    <li>Under time pressure, doctors create new patient records instead of thorough searching</li>
+                                    <li>This creates duplicate patient entries in the system</li>
+                                    <li>Duplicate records lead to 2-3x rework on billing and reconciliation</li>
                                 </ul>
-                                <h4>System Architecture Issue:</h4>
+                                <h4>Why This Happens:</h4>
                                 <ul>
-                                    <li>IngeniousMed → AdvancedMD sync runs once daily</li>
-                                    <li>No real-time API available</li>
-                                    <li>No "pending sync" indicator for providers</li>
-                                    <li>No duplicate detection before creation</li>
+                                    <li>Patient search requires exact matching or careful filtering</li>
+                                    <li>High-volume environment with time constraints</li>
+                                    <li>Doctors prioritize patient care over system navigation</li>
+                                    <li>No clear warning that patient may already exist</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="timeline-item">
-                            <div class="timeline-time">Secondary Cause: Census Processing</div>
+                            <div class="timeline-time">Secondary Issue: IngeniousMed Assignment Lag</div>
                             <div class="timeline-content">
-                                <h4>Census Duplication Issues:</h4>
+                                <h4>IngeniousMed System Update Impact:</h4>
                                 <ul>
-                                    <li>Adjacent-day census PDFs contain same patients</li>
-                                    <li>Example: Patient on 11/16 census also appears on 11/17</li>
-                                    <li>No automated comparison between days</li>
-                                    <li>Manual review often misses duplicates</li>
+                                    <li>IngeniousMed system update caused 1-day assignment delay</li>
+                                    <li><strong>Example:</strong> On November 14th, can only assign encounters from November 13th</li>
+                                    <li><strong>If doctor bills same day:</strong> Charges appear immediately and can be processed</li>
+                                    <li><strong>If doctor doesn't bill:</strong> Reshma's team cannot assign encounters until next day</li>
+                                </ul>
+                                <h4>Workflow Impact:</h4>
+                                <ul>
+                                    <li>This is an operational workflow issue, NOT a cause of duplicates</li>
+                                    <li>Today's billing only populates if doctor adds charges same day</li>
+                                    <li>Otherwise, assignment team works on yesterday's encounters</li>
                                 </ul>
                             </div>
                         </div>
@@ -91,30 +97,30 @@
                     <h3>Proposed Solutions</h3>
                     <div class="recommendation-list">
                         <div class="recommendation">
-                            <h3>Immediate Mitigation (Week 1)</h3>
+                            <h3>Immediate Mitigation (Week 1) - User Training</h3>
                             <ul>
-                                <li>Sort census by Name + DOB before entry</li>
-                                <li>Compare adjacent-day census lists side-by-side</li>
-                                <li>Flag potential duplicates: Same DOS + LOS + Provider</li>
-                                <li>Verify admit/discharge dates match</li>
+                                <li>Train doctors on effective patient search techniques in IngeniousMed</li>
+                                <li>Create quick reference guide for patient lookup best practices</li>
+                                <li>Emphasize importance of thorough search before creating new patients</li>
+                                <li>Implement "double-check" workflow: search twice before creating new record</li>
                             </ul>
                         </div>
                         <div class="recommendation">
-                            <h3>Short-term Fix (Weeks 2-4)</h3>
+                            <h3>Short-term Fix (Weeks 2-4) - System Improvements</h3>
                             <ul>
-                                <li>Build duplicate detection report in Excel/SQL</li>
-                                <li>Match on: Name, DOB, DOS, Provider, LOS</li>
-                                <li>Run daily before billing submission</li>
-                                <li>Export "Review Duplicates" CSV for staff</li>
+                                <li>Improve IngeniousMed search functionality (fuzzy matching, suggestions)</li>
+                                <li>Add warning message: "Similar patient found - check before creating new"</li>
+                                <li>Build duplicate detection report in Excel/SQL for billing team</li>
+                                <li>Run daily duplicate check before claim submission</li>
                             </ul>
                         </div>
                         <div class="recommendation">
-                            <h3>Long-term Solution (Months 2-3)</h3>
+                            <h3>Long-term Solution (Months 2-3) - Automation</h3>
                             <ul>
-                                <li>Implement real-time IM ↔ AMD sync</li>
-                                <li>Add "pending sync" indicator in IngeniousMed</li>
-                                <li>Pre-bill duplicate validator in AMD</li>
-                                <li>Automated merge functionality</li>
+                                <li>Implement AI-powered duplicate detection before patient creation</li>
+                                <li>Add real-time patient matching suggestions during search</li>
+                                <li>Create automated merge functionality for confirmed duplicates</li>
+                                <li>Dashboard showing duplicate creation trends by provider</li>
                             </ul>
                         </div>
                     </div>

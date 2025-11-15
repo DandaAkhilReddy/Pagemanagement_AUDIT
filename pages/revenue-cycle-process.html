@@ -137,17 +137,22 @@
                         <div class="timeline-content">
                             <h4>System Integration:</h4>
                             <ul>
-                                <li>Automatic sync occurs every 24 hours</li>
-                                <li>New patients take ~24 hours to appear in AMD</li>
                                 <li>Charge data flows from IM to AMD</li>
+                                <li>If doctor bills same day, charges appear immediately in AMD</li>
                                 <li>Manual reconciliation required for missing data</li>
                             </ul>
-                            <h4>Sync Issues:</h4>
+                            <h4>Assignment Workflow:</h4>
                             <ul>
-                                <li><strong>24-hour lag</strong> causes duplicate patient creation</li>
-                                <li>Providers can't wait, create manual entries</li>
-                                <li>Staff must identify and merge duplicates</li>
-                                <li>No real-time sync available currently</li>
+                                <li><strong>IngeniousMed system update:</strong> Assignment delayed by 1 day</li>
+                                <li>On November 14th, can only assign encounters from November 13th</li>
+                                <li>If doctor doesn't bill, Reshma's team works on yesterday's encounters</li>
+                                <li>This is an operational workflow issue, not a cause of duplicates</li>
+                            </ul>
+                            <h4>Duplicate Patient Issue:</h4>
+                            <ul>
+                                <li><strong>Root Cause:</strong> Doctors cannot quickly find existing patients in search</li>
+                                <li>Under time pressure, doctors create new patient records instead of thorough searching</li>
+                                <li>Staff must identify and merge duplicates (2-3x rework)</li>
                             </ul>
                         </div>
                     </div>
@@ -388,12 +393,12 @@
                     <h3>Bottleneck Areas</h3>
                     <div class="recommendation-list">
                         <div class="recommendation">
-                            <h3>24-Hour System Lag</h3>
+                            <h3>Duplicate Patient Entries (User Error)</h3>
                             <ul>
-                                <li>IngeniousMed to AdvancedMD sync delay</li>
-                                <li>Causes duplicate patient entries</li>
-                                <li>Providers can't wait to bill</li>
-                                <li>Results in 2-3x rework</li>
+                                <li>Doctors cannot quickly locate patients in IngeniousMed search</li>
+                                <li>Under time pressure, create new patient records instead of thorough searching</li>
+                                <li>Results in 2-3x rework for billing and reconciliation</li>
+                                <li>Solution: Improve user training and search interface</li>
                             </ul>
                         </div>
                         <div class="recommendation">
