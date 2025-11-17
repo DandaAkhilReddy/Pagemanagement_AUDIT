@@ -11,7 +11,8 @@
       "Bash(gh repo view:*)",
       "Bash(git commit:*)",
       "Bash(curl:*)",
-      "Bash(start http://localhost:8000)"
+      "Bash(start http://localhost:8000)",
+      "Bash(python -m http.server:*)"
     ],
     "deny": [],
     "ask": []
