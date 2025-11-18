@@ -12,7 +12,11 @@
       "Bash(git commit:*)",
       "Bash(curl:*)",
       "Bash(start http://localhost:8000)",
-      "Bash(python -m http.server:*)"
+      "Bash(python -m http.server:*)",
+      "Bash(start http://localhost:8000/presentation.html)",
+      "Bash(for file in revenue-cycle-process.html daily-operations.html payer-management.html payer-analysis.html critical-issues.html denial-management.html financial-reconciliation.html automation-recommendations.html metrics-kpis.html)",
+      "Bash(do sed -i '/<li><a href=\"\"metrics-kpis.html\"\">Metrics & KPIs<\\/a><\\/li>/a\\                <li><a href=\"\"../presentation.html\"\">Presentation</a></li>' \"$file\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

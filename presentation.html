@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCM Assessment Presentation - November 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 80px;
+            position: relative;
+            overflow-y: auto;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-header {
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .slide-title {
+            font-size: 2.5em;
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .slide-subtitle {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 400;
+        }
+
+        .slide-content h2 {
+            color: #2d3748;
+            font-size: 1.0em;
+            margin: 10px 0 5px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .slide-content h3 {
+            color: #4a5568;
+            font-size: 0.95em;
+            margin: 10px 0 5px 0;
+        }
+
+        .slide-content ul {
+            margin: 15px 0 15px 40px;
+            line-height: 1.8;
+        }
+
+        .slide-content li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+
+        .slide-content strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .slide-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .slide-content table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .slide-content table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+
+        .slide-content table tr:hover {
+            background: #f7fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .badge.critical {
+            background: #c53030;
+            color: white;
+        }
+
+        .badge.high {
+            background: #fc8181;
+            color: white;
+        }
+
+        .badge.medium {
+            background: #f6ad55;
+            color: white;
+        }
+
+        .highlight-box {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .comparison-box {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .comparison-box.current {
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+        }
+
+        .comparison-box.should {
+            background: #f0fff4;
+            border-left: 4px solid #68d391;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background: #667eea;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 20px;
+            right: 40px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #667eea;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .instructions {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            color: #4a5568;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .title-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .title-slide .slide-title {
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .title-slide .slide-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.8em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+                margin: 20px;
+            }
+            .navigation, .slide-number, .instructions, .progress-bar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+                width: 95%;
+            }
+            .slide-title {
+                font-size: 2em;
+            }
+            .instructions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="instructions">
+            Use ← → arrow keys or click buttons to navigate | Press F for fullscreen
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <div class="slide-title">Page Management RCM Assessment</div>
+            <div class="slide-subtitle">November 2025</div>
+        </div>
+
+        <!-- Slide 2: Assessment Context -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Volume Context</h2>
+                <ul>
+                    <li><strong>Daily Claims:</strong> 800-900 transmitted to clearinghouse</li>
+                    <li><strong>Daily Posting Target:</strong> $100,000+</li>
+                    <li><strong>Staff:</strong> 17 employees (Page Management + HHA billing staff)</li>
+                    <li><strong>Geographic Coverage:</strong> Florida (Primary), Texas (Secondary)</li>
+                </ul>
+
+                <h2>Technology Stack</h2>
+                <ul>
+                    <li><strong>EMR:</strong> Meditech → IngeniousMed (auto-capture) → AdvancedMD (PM system)</li>
+                    <li><strong>Clearinghouse:</strong> McKesson (7 PM auto-transmit + manual pushes)</li>
+                    <li><strong>Payment Posting:</strong> 100% manual, no automation configured</li>
+                    <li><strong>Reporting:</strong> Excel-based, SFTP file drops</li>
+                </ul>
+
+                <h2>Critical Limitation</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <p><strong>Single Point of Failure:</strong> Heavy reliance on Lisa (Page Management owner) for critical operations. When volume increases, work postpones to tomorrow - creating rolling backlogs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Critical Findings Summary -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Issue</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td><strong>Physician Coding & Documentation</strong></td>
+                            <td>Most physicians lack training, skip Level 3 codes to avoid documentation - lost revenue per encounter</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td><strong>Physician Billing Delay</strong></td>
+                            <td>15 days given vs 72 hours needed. Lisa starts billing after 12-day delay - revenue cycle elongation</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td><strong>Payment Posting Backlog</strong></td>
+                            <td>100% manual, no automation. Cannot scale with volume - Lisa postpones work when overloaded</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">HIGH</span></td>
+                            <td><strong>Payment Tracking Gaps</strong></td>
+                            <td>Most insurances don't pay on EOB dates. No follow-up system, no automation to track delays</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">HIGH</span></td>
+                            <td><strong>Bank Reconciliation Gap</strong></td>
+                            <td>Weekly (not daily), manual matching - unexplained discrepancies, audit risk</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 4: Issue #1 - Physician Coding Problem -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="comparison-grid">
+                    <div class="comparison-box current">
+                        <h3>Current State</h3>
+                        <ul>
+                            <li>Most physicians <strong>do not know exact codes to use</strong></li>
+                            <li><strong>No proper training</strong> provided to physicians</li>
+                            <li>Multiple doctors interviewed confirm incorrect coding</li>
+                            <li><strong>Exception:</strong> Dr. Veena Reddy is ONLY physician coding correctly</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box should">
+                        <h3>Root Cause</h3>
+                        <ul>
+                            <li><strong>Level 3 CPT codes require more documentation</strong></li>
+                            <li>Doctors skip to lower-level codes to avoid documentation effort</li>
+                            <li>Prioritize patient care over billing accuracy</li>
+                            <li>No feedback loop showing revenue impact</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Financial Impact</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <ul>
+                        <li><strong>Undercoding = lost revenue on every encounter</strong></li>
+                        <li>Cannot quantify total revenue loss without comprehensive coding audit</li>
+                        <li>Compliance risk if audited by payers (unbundling/upcoding perception if corrected later)</li>
+                        <li>Perpetuates incorrect behavior without intervention</li>
+                    </ul>
+                </div>
+
+                <h2>Required Actions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Provide proper CPT training to <strong>each and every physician</strong></td>
+                            <td>Medical Director + Coding Educator</td>
+                        </tr>
+                        <tr>
+                            <td>Implement systematic rechecking of physician billing patterns</td>
+                            <td>Lisa's team (quality control)</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly coding audits comparing documentation to codes billed</td>
+                            <td>External coding auditor</td>
+                        </tr>
+                        <tr>
+                            <td>Use Dr. Veena Reddy's coding as internal benchmark</td>
+                            <td>Coding Educator</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 5: Issue #2 - Physician Billing Delay -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="comparison-grid">
+                    <div class="comparison-box current">
+                        <h3>Current: 15 Days Given</h3>
+                        <ul>
+                            <li>Doctors have <strong>15 days</strong> to complete billing</li>
+                            <li>Many doctors don't bill same day</li>
+                            <li><strong>After 15 days:</strong> Lisa's team starts billing for unbilled encounters</li>
+                            <li><strong>12-day delay</strong> between encounter and billing start</li>
+                            <li>Incomplete documentation remains an issue</li>
+                            <li>Missing modifiers (especially Q6 for locum providers)</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box should">
+                        <h3>Should Be: 72 Hours Maximum</h3>
+                        <ul>
+                            <li>Strict 72-hour window for physician billing</li>
+                            <li>After 72 hours, billing team takes over immediately</li>
+                            <li>Reduces revenue cycle by 12 days</li>
+                            <li>Aligns with industry best practice</li>
+                            <li>Enables faster denial identification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Impact</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <ul>
+                        <li><strong>12-day revenue delay</strong> on every unbilled encounter</li>
+                        <li>Cash flow impact compounds across 800-900 daily claims</li>
+                        <li>Delayed denial identification (can't appeal until claim submitted)</li>
+                        <li>AR aging artificially inflated by unbilled encounters</li>
+                    </ul>
+                </div>
+
+                <h2>Required Policy Change</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physician billing window</td>
+                            <td>15 days</td>
+                            <td>72 hours (3 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Billing team takeover</td>
+                            <td>Day 16</td>
+                            <td>Day 4</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue cycle improvement</td>
+                            <td>—</td>
+                            <td>-12 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 6: Issue #3 - Payment Posting Backlog -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Current State</h2>
+                <div class="highlight-box" style="border-left-color: #c53030; background: #fff5f5;">
+                    <ul>
+                        <li><strong>100% manual posting process (NO automation configured)</strong></li>
+                        <li>Significant posting backlog exists</li>
+                        <li>Each payment posted individually by Lisa's team</li>
+                        <li>Posting limited to afternoons only (12 PM - 5 PM)</li>
+                        <li>NO auto-posting rules configured in AdvancedMD</li>
+                    </ul>
+                </div>
+
+                <h2>Critical Capacity Issue</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-box current">
+                        <h3>The Problem</h3>
+                        <ul>
+                            <li><strong>Lisa cannot handle increased volume</strong></li>
+                            <li><strong>When volume spikes, work postpones to tomorrow</strong></li>
+                            <li><strong>Creates rolling backlog that compounds daily</strong></li>
+                            <li>No scalability without additional resources</li>
+                            <li>Single person dependency = bottleneck</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box should">
+                        <h3>Impact</h3>
+                        <ul>
+                            <li>Delays revenue recognition</li>
+                            <li>Obscures true AR position</li>
+                            <li>Cannot identify secondary billing opportunities timely</li>
+                            <li>Finance team lacks real-time cash visibility</li>
+                            <li>Growth limited by manual capacity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Required Changes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Action</th>
+                            <th>Expected Automation Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phase 1 (Week 2)</td>
+                            <td>Configure auto-posting rules for clean Medicare claims</td>
+                            <td>15-20%</td>
+                        </tr>
+                        <tr>
+                            <td>Phase 2 (Week 4-6)</td>
+                            <td>Expand to BCBS, Humana clean claims (single CPT, exact match)</td>
+                            <td>35-45%</td>
+                        </tr>
+                        <tr>
+                            <td>Phase 3 (Month 2-3)</td>
+                            <td>Deploy RPA for complex ERA processing</td>
+                            <td>65-75%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 7: Issue #4 - Payment Tracking Gaps -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Core Problem</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <ul>
+                        <li><strong>Most insurances don't pay on exact EOB dates</strong> - delays are common</li>
+                        <li><strong>No follow-up system</strong> to track why payments didn't arrive on expected date</li>
+                        <li><strong>No automation</strong> for payment tracking or escalation</li>
+                        <li>Manual checking required to identify missing/delayed payments</li>
+                        <li>No alerts when payments exceed expected timeline</li>
+                    </ul>
+                </div>
+
+                <h2>Payer Payment Lag Patterns</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Insurance</th>
+                            <th>Average Lag (EOB to Bank)</th>
+                            <th>Bank Label</th>
+                            <th>Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Medicare</td>
+                            <td>0-1 day early</td>
+                            <td>CMS/NGS</td>
+                            <td>Most reliable</td>
+                        </tr>
+                        <tr>
+                            <td>BCBS</td>
+                            <td>1-day lag</td>
+                            <td>BCBS/Anthem</td>
+                            <td>Predictable next-day</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Humana</strong></td>
+                            <td><strong>3-day lag + 30-day pending letters</strong></td>
+                            <td>Humana</td>
+                            <td>EOB early, deposit late</td>
+                        </tr>
+                        <tr>
+                            <td>United/Optum</td>
+                            <td>Variable</td>
+                            <td>Optum (label mismatch)</td>
+                            <td>Inconsistent</td>
+                        </tr>
+                        <tr>
+                            <td>Aetna</td>
+                            <td>Pre-notified</td>
+                            <td>Aetna/CVS</td>
+                            <td>Advance notice given</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Humana Special Issue (October 2025 Change)</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <p><strong>30-Day Pending Letter Scheme:</strong> After medical records uploaded, Humana auto-generates pending letter adding 30+ days to payment timeline. Requires systematic tracking of request dates, upload dates, invoices ($2/page per Florida statute), and interest calculations for late payments beyond 30 days.</p>
+                </div>
+
+                <h2>Required Solution</h2>
+                <ul>
+                    <li>Automated tracking: Expected deposit date vs actual deposit date</li>
+                    <li>Daily alerts when lag exceeds payer-specific threshold</li>
+                    <li>Escalation workflow for missing payments (auto-generate follow-up tasks)</li>
+                    <li>Humana pending letter tracking dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8: Issue #5 - Bank Reconciliation Gap -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="comparison-grid">
+                    <div class="comparison-box current">
+                        <h3>Current State</h3>
+                        <ul>
+                            <li><strong>Weekly</strong> reconciliation (not daily)</li>
+                            <li>100% manual matching process</li>
+                            <li>Unexplained discrepancies exist</li>
+                            <li>Bank labels don't match payer names (e.g., "Optum" vs "United Healthcare")</li>
+                            <li>EOBs not always received for all deposits</li>
+                            <li>Deposits sometimes split across multiple days</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box should">
+                        <h3>Should Be: Daily Three-Way Match</h3>
+                        <ul>
+                            <li><strong>Daily reconciliation</strong> (not weekly)</li>
+                            <li>Three-way matching:
+                                <ul>
+                                    <li>EOB received</li>
+                                    <li>Payment posted in system</li>
+                                    <li>Actual bank deposit</li>
+                                </ul>
+                            </li>
+                            <li>Same-day discrepancy identification</li>
+                            <li>Automated payer-to-bank name mapping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Impact</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <ul>
+                        <li><strong>Incomplete/delayed matching</strong> between claims submitted, remittances received, payments posted, and bank deposits</li>
+                        <li>Audit risk (cannot quickly prove all deposits matched to claims)</li>
+                        <li>Obscures true cash position (finance doesn't know what's unposted)</li>
+                        <li>Cannot quickly identify missing payments or payer underpayments</li>
+                        <li>Weekly process cannot keep pace with 800-900 daily claims</li>
+                    </ul>
+                </div>
+
+                <h2>Two-Week Resolution Plan</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Week 1</strong></td>
+                            <td>
+                                • Get October/November bank registers from finance<br>
+                                • Match all deposits to EOBs by amount<br>
+                                • Identify patterns in unmatched deposits<br>
+                                • Contact payers for missing EOBs
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Week 2</strong></td>
+                            <td>
+                                • Implement <strong>DAILY reconciliation</strong> process<br>
+                                • Create payer-to-bank name mapping table<br>
+                                • Establish three-way match workflow<br>
+                                • Flag discrepancies same day for immediate investigation
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 9: Revenue Cycle Process Flow (Correct) -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>System/Actor</th>
+                            <th>Action</th>
+                            <th>Problem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Provider</td>
+                            <td>Sees patient, enters into <strong>Meditech EMR</strong></td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>IngeniousMed</td>
+                            <td><strong>Auto-captures from Meditech</strong></td>
+                            <td>Census team can't add patient for today if not in system (next day only)</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Provider</td>
+                            <td>Bills CPT codes in IngeniousMed → flows to <strong>AdvancedMD</strong></td>
+                            <td><strong>15-day window given, many doctors don't bill same day</strong></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Lisa's team</td>
+                            <td>Reviews/codes in AdvancedMD after 15 days if unbilled</td>
+                            <td><strong>12-day delay before billing starts</strong></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Lisa's team</td>
+                            <td><strong>Manually pushes claims to clearinghouse</strong></td>
+                            <td>Not automated, requires manual intervention</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>McKesson</td>
+                            <td>Clearinghouse forwards to payers</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Payers</td>
+                            <td>Adjudicate, send EOB, deposit to bank</td>
+                            <td><strong>Most don't pay on exact EOB dates - no follow-up system</strong></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Lisa's team</td>
+                            <td>Manual payment posting (afternoons only)</td>
+                            <td><strong>100% manual, backlog exists, Lisa can't scale with volume</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Key Bottlenecks</h2>
+                <ul>
+                    <li><span class="badge critical">Step 3-4:</span> 12-day billing delay</li>
+                    <li><span class="badge critical">Step 7:</span> No payment tracking/follow-up automation</li>
+                    <li><span class="badge critical">Step 8:</span> Manual posting cannot scale, work postponed when volume high</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Capacity & Scalability Analysis -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Single Point of Failure</h2>
+                <div class="highlight-box" style="border-left-color: #c53030; background: #fff5f5;">
+                    <ul>
+                        <li><strong>Heavy reliance on Lisa</strong> for critical billing operations (coding review, claim transmission, payment posting oversight, reporting)</li>
+                        <li><strong>When volume increases, Lisa cannot handle it - work postpones to tomorrow</strong></li>
+                        <li><strong>Creates rolling backlog that compounds daily</strong></li>
+                        <li>No cross-training or backup coverage</li>
+                        <li>Knowledge concentrated in one person - succession risk</li>
+                    </ul>
+                </div>
+
+                <h2>Scalability Analysis</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Current Capacity</th>
+                            <th>Constraint</th>
+                            <th>Scalability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Claim Review & Coding</td>
+                            <td>800-900/day</td>
+                            <td>Lisa's team review capacity</td>
+                            <td>❌ Cannot scale</td>
+                        </tr>
+                        <tr>
+                            <td>Payment Posting</td>
+                            <td>$100K/day target</td>
+                            <td>100% manual, Lisa's capacity</td>
+                            <td>❌ Cannot scale</td>
+                        </tr>
+                        <tr>
+                            <td>AR Follow-up</td>
+                            <td>60-90 day buckets prioritized</td>
+                            <td>Team bandwidth</td>
+                            <td>❌ Cannot scale</td>
+                        </tr>
+                        <tr>
+                            <td>Denial Management</td>
+                            <td>Reactive</td>
+                            <td>Manual identification</td>
+                            <td>❌ Cannot scale</td>
+                        </tr>
+                        <tr>
+                            <td>Bank Reconciliation</td>
+                            <td>Weekly</td>
+                            <td>100% manual process</td>
+                            <td>❌ Cannot scale</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Additional Issues</h2>
+                <ul>
+                    <li><strong>SFTP File Management:</strong> Oct 7 & 23 files still unpulled, no acknowledgment system, manual proof required (screenshot timestamps for disputes)</li>
+                    <li><strong>EnableComp Transparency:</strong> No patient-level reporting, no weekly status updates, cannot measure ROI or effectiveness</li>
+                </ul>
+
+                <h2>Strategic Conclusion</h2>
+                <div class="highlight-box">
+                    <p><strong>Current Page Management structure cannot support volume growth.</strong> Every critical function is capacity-constrained by individual bandwidth. No automation configured to enable scalability.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Daily Operations Context -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                            <th>Why Changed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>8 AM - 12 PM</strong></td>
+                            <td>AR Collections Focus (60-90 day priority)<br>Census review, patient registration<br>Denial management<br>Report generation</td>
+                            <td rowspan="2">Previous schedule: Mon-Tue posting only, Wed-Thu AR only.<br><br><strong>Result:</strong> Mon-Tue AR buildup, Wed-Thu posting backlog.<br><br><strong>New schedule:</strong> Daily split (mornings AR, afternoons posting) to balance workload.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>12 PM - 5 PM</strong></td>
+                            <td>Payment Posting Focus (target $100K+)<br>ERA download<br>Secondary claims<br>Claim transmission<br>Daily wrap-up</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Problem with Current Schedule</h2>
+                <div class="highlight-box" style="border-left-color: #fc8181; background: #fff5f5;">
+                    <p>Even with balanced schedule, <strong>posting limited to afternoons only (5 hours/day).</strong> When posting volume exceeds 5-hour capacity, Lisa postpones work to tomorrow - creating rolling backlog. Solution requires automation (auto-posting rules + RPA), not just schedule changes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Risk Assessment -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Risk Level</th>
+                            <th>Financial Impact</th>
+                            <th>Operational Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Physician Undercoding</strong></td>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td>Lost revenue per encounter (unknown total without audit)</td>
+                            <td>Compliance risk, no physician accountability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Physician Billing Delay</strong></td>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td>12-day revenue delay × 800-900 daily claims</td>
+                            <td>Cash flow impact, delayed denial identification</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Posting Backlog</strong></td>
+                            <td><span class="badge critical">CRITICAL</span></td>
+                            <td>Delayed revenue recognition obscures cash position</td>
+                            <td>Cannot scale with volume, Lisa postpones work</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment Tracking Gaps</strong></td>
+                            <td><span class="badge high">HIGH</span></td>
+                            <td>Missing payments unidentified, no follow-up</td>
+                            <td>Manual checking required, no automation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bank Reconciliation Gap</strong></td>
+                            <td><span class="badge high">HIGH</span></td>
+                            <td>Unexplained discrepancies, potential leakage</td>
+                            <td>Audit risk, weekly process can't keep pace</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capacity Limitations</strong></td>
+                            <td><span class="badge high">HIGH</span></td>
+                            <td>Growth limited by individual bandwidth</td>
+                            <td>Single point of failure, no succession plan</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 13: Immediate Actions (0-2 Weeks) -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Action</th>
+                            <th>Owner</th>
+                            <th>Expected Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge critical">1</span></td>
+                            <td>Provide proper CPT coding training to <strong>each and every physician</strong></td>
+                            <td>Medical Director</td>
+                            <td>Reduce undercoding, increase revenue per encounter</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge critical">2</span></td>
+                            <td>Implement systematic rechecking of physician billing patterns</td>
+                            <td>Lisa's team</td>
+                            <td>Quality control feedback loop</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge critical">3</span></td>
+                            <td>Change physician billing window from 15 days to <strong>72 hours</strong></td>
+                            <td>Leadership</td>
+                            <td>-12 days revenue cycle improvement</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge critical">4</span></td>
+                            <td>Establish <strong>daily</strong> bank reconciliation routine (replace weekly)</td>
+                            <td>Lisa + Finance</td>
+                            <td>Same-day discrepancy identification</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">5</span></td>
+                            <td>Begin clearing payment posting backlog</td>
+                            <td>Lisa's team</td>
+                            <td>Improved cash visibility</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">6</span></td>
+                            <td>Create payer-to-bank name mapping table</td>
+                            <td>Lisa</td>
+                            <td>Enable automated reconciliation</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">7</span></td>
+                            <td>Implement SFTP file tracking with acknowledgment requirements</td>
+                            <td>IT + Lisa</td>
+                            <td>Eliminate file drop disputes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 14: Short-Term Improvements (2-8 Weeks) -->
+        <div class="slide">
+            <div class="slide-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Initiative</th>
+                            <th>Description</th>
+                            <th>Expected Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Auto-Posting Rules</strong></td>
+                            <td>Configure AdvancedMD auto-posting for clean Medicare payments<br><br>Criteria: Single CPT, CO45 only, exact patient match, no secondary</td>
+                            <td>15-20% posting automation<br>(~$15K-20K/day automated)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EOB-to-Bank Matching</strong></td>
+                            <td>Automate daily matching using payer-to-bank name mapping<br><br>Example: "Optum" = United Healthcare</td>
+                            <td>Daily three-way reconciliation<br>Same-day discrepancy alerts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payer Lag Monitoring</strong></td>
+                            <td>Automated tracking: Expected deposit date vs actual<br><br>Alerts when lag exceeds payer-specific threshold</td>
+                            <td>Proactive payment follow-up<br>Identify missing payments same day</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coding Quality Audits</strong></td>
+                            <td>Monthly audits comparing documentation to codes billed<br><br>Use Dr. Veena Reddy as internal benchmark</td>
+                            <td>Quantify revenue recovery opportunity<br>Physician-specific feedback</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Humana Pending Letter Tracker</strong></td>
+                            <td>Track: Claim #, Request Date, Upload Date, Invoice Date, Pending Letter Date, Due Date (+30), Payment Date, Interest Owed</td>
+                            <td>Systematic tracking of 30-day delays<br>Enforce $2/page invoicing + interest</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 15: Strategic Question -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Core Issue</h2>
+                <div class="highlight-box" style="border-left-color: #c53030; background: #fff5f5;">
+                    <p style="font-size: 1.3em;"><strong>Current Page Management structure cannot scale with volume growth.</strong></p>
+                    <ul style="margin-top: 20px; font-size: 1.1em;">
+                        <li>100% manual processes (posting, reconciliation, tracking)</li>
+                        <li>Heavy reliance on Lisa - when volume increases, work postpones to tomorrow</li>
+                        <li>No automation configured to enable scalability</li>
+                        <li>Every critical function is capacity-constrained by individual bandwidth</li>
+                    </ul>
+                </div>
+
+                <h2>Two Paths Forward</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-box current">
+                        <h3>Path A: Automation Investment</h3>
+                        <ul>
+                            <li>Deploy RPA for payment posting (75% automation rate)</li>
+                            <li>Implement automated tracking dashboards</li>
+                            <li>Configure auto-posting rules in AdvancedMD</li>
+                            <li>Build payer lag monitoring system</li>
+                            <li><strong>Outcome:</strong> Scale with existing team</li>
+                            <li><strong>ROI:</strong> 3-month payback</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box should">
+                        <h3>Path B: In-House Transition</h3>
+                        <ul>
+                            <li>Bring billing operations in-house</li>
+                            <li>Hire dedicated billing manager</li>
+                            <li>Build internal team with cross-training</li>
+                            <li>Still requires automation investment (same tools needed)</li>
+                            <li><strong>Outcome:</strong> Direct control + scalability</li>
+                            <li><strong>Investment:</strong> Higher upfront, ongoing payroll</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Questions for Discussion</h2>
+                <ul style="font-size: 1.2em; margin-top: 30px;">
+                    <li>What is the organization's risk tolerance for single-vendor dependency (Page Management)?</li>
+                    <li>What is the expected volume growth trajectory over next 12-24 months?</li>
+                    <li>What is the appetite for automation investment (RPA, BI dashboards, workflow tools)?</li>
+                    <li>Should billing operations be considered a core competency to bring in-house?</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 40px;">
+                    <h3 style="text-align: center; color: #667eea; font-size: 2em;">Questions & Discussion</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-number" id="slideNumber">1 / 15</div>
+
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) { currentSlide = totalSlides; }
+            if (n < 1) { currentSlide = 1; }
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            // Update progress bar
+            const progress = (currentSlide / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            // Update slide number
+            document.getElementById('slideNumber').textContent = currentSlide + ' / ' + totalSlides;
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = (currentSlide === 1);
+            document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+
+            // Scroll to top of slide
+            slides[currentSlide - 1].scrollTop = 0;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key.toLowerCase() === 'f') {
+                toggleFullscreen();
+            }
+        });
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+
+        // Print handler
+        window.addEventListener('beforeprint', function() {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.add('active');
+            });
+        });
+
+        window.addEventListener('afterprint', function() {
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
